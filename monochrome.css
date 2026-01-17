@@ -4,7 +4,7 @@
   --color-grey-bg-1: #464646; /* Ratiobar */
   --color-grey-bg-2: #363636; /* Site banner / Panel*/
   --color-grey-bg-3: #292929; /* Navbar */
-  --color-grey-bg-4: #00ff00; /* Site background */
+  --color-grey-bg-4: #141414; /* Site background */
   --color-grey-bg-5: #181818; /* Chat background */
 
   --color-grey-text-1: #d6d6d6; /* Main titles / Form Text / Highlighted Text */
@@ -3008,3 +3008,4 @@ div.stats div.content {
     display: none;
   }
 }
+
