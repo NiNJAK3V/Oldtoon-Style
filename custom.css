@@ -1,4 +1,126 @@
 /* =====================================================
+   UNIT3D – Standalone UI Framework (No Theme Dependency)
+   ===================================================== */
+
+/* ---------- RESET ---------- */
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,
+menu,nav,output,ruby,section,summary,
+time,mark,audio,video {
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {display:block;}
+body {line-height:1;background:#0f1115;color:#eaeaf0;font-family:Inter,Segoe UI,sans-serif;}
+ol,ul {list-style:none;}
+table {border-collapse:collapse;border-spacing:0;}
+
+/* ---------- GRID SYSTEM ---------- */
+.container{max-width:1400px;margin:auto;padding:24px;}
+.row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+.col-12{grid-column:span 12}
+.col-9{grid-column:span 9}
+.col-6{grid-column:span 6}
+.col-4{grid-column:span 4}
+.col-3{grid-column:span 3}
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+  position:sticky;top:0;z-index:999;
+  background:#111827;
+  border-bottom:1px solid #2a3042;
+}
+.navbar .container{display:flex;align-items:center;gap:20px;}
+.navbar a{padding:14px 18px;border-radius:10px;color:#eaeaf0;}
+.navbar a:hover{background:#1b2030}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:12px;
+  padding:20px;
+}
+.sidebar a{display:block;padding:10px 12px;border-radius:8px;color:#9aa0b3}
+.sidebar a:hover{background:#1b2030;color:#fff}
+
+/* ---------- CARDS ---------- */
+.card{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:14px;
+  padding:20px;
+}
+
+/* ---------- DASHBOARD ---------- */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stat{
+  background:#1b2030;
+  padding:20px;border-radius:12px;text-align:center;
+}
+.stat h3{font-size:26px;color:#5cc8ff}
+
+/* ---------- TORRENT LIST ---------- */
+.torrent-table{
+  display:grid;
+  grid-template-columns:60px 1fr 120px 120px 120px 120px 80px;
+}
+.torrent-row{display:contents}
+.torrent-cell{
+  padding:14px;border-bottom:1px solid #2a3042;
+}
+.torrent-header .torrent-cell{color:#5cc8ff;font-weight:600}
+
+/* ---------- FORMS ---------- */
+.form-group{margin-bottom:18px}
+label{display:block;margin-bottom:6px;color:#9aa0b3}
+input,select,textarea{
+  width:100%;padding:12px;
+  background:#0f1320;border:1px solid #2a3042;
+  border-radius:10px;color:#fff;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  padding:12px 22px;border-radius:12px;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:#fff;border:none;font-weight:600;
+}
+
+/* ---------- PROFILE ---------- */
+.profile-header{
+  display:grid;grid-template-columns:140px 1fr;gap:24px;
+  align-items:center;background:#1b2030;
+  padding:30px;border-radius:14px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{text-align:center;padding:30px;color:#9aa0b3;border-top:1px solid #2a3042}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:900px){
+  .row{grid-template-columns:1fr}
+  .torrent-table{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .navbar .container{flex-wrap:wrap}
+}
+
+
+/* =====================================================
    UNIT3D – Standalone Theme (Override, Not Replacement)
    ===================================================== */
 
