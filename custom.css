@@ -190,3 +190,84 @@ input,select,textarea{
   color:#eaeaf0;text-decoration:none;
 }
 .torrent-actions a:hover{background:#2563eb;border:none}
+
+/* =====================================================
+   TORRENT DETAILS – STANDALONE LAYOUT
+   ===================================================== */
+
+/* Header */
+.torrent-header{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  margin-bottom:32px;
+}
+.torrent-title{
+  font-size:28px;
+  font-weight:700;
+  color:#5cc8ff;
+}
+
+/* Info panels */
+.torrent-panels{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+  margin-bottom:32px;
+}
+.torrent-panel{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:18px;
+  padding:24px;
+}
+
+/* Buttons */
+.torrent-buttons a{
+  display:inline-block;
+  margin-right:12px;
+  padding:12px 20px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:#fff;text-decoration:none;
+  font-weight:600;
+}
+
+/* Description */
+.torrent-description{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:18px;
+  padding:24px;
+  margin-bottom:32px;
+}
+
+/* File list */
+.file-list{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:18px;
+  overflow:hidden;
+}
+.file-list th,.file-list td{padding:14px;border-bottom:1px solid #2a3042;}
+.file-list th{color:#5cc8ff;background:#0f1320}
+
+/* Comments */
+.comments{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:18px;
+  padding:24px;
+}
+.comment{
+  border-bottom:1px solid #2a3042;
+  padding:18px 0;
+}
+.comment-user{color:#5cc8ff;font-weight:600}
+.comment-text{margin-top:8px;color:#eaeaf0}
+
+/* Responsive */
+@media(max-width:900px){
+  .torrent-panels{grid-template-columns:1fr}
+  .torrent-header{grid-template-columns:1fr}
+}
