@@ -1,36 +1,33 @@
-/* ios-dark-external-unit3d.css
+/* ios-light-external-unit3d.css
    External CSS Stylesheet (Stacks on top of site theme)
-   iOS Dark – STRONGER variant
+   iOS Light – STRONG variant (matches iOS Dark strength)
    Built following Roardom/blu-themes external philosophy
 
-   Base theme expected: UNIT3D Light or Dark
-   (Works best on Light; Dark also acceptable)
-
-   This is intentionally stronger than Monochrome,
-   but still NOT a standalone theme.
+   Base theme expected: UNIT3D Light
 */
 
 /* =====================================================
-   iOS DARK DESIGN TOKENS
+   iOS LIGHT DESIGN TOKENS
 ===================================================== */
 :root {
-  --ios-bg: #000000;
-  --ios-surface: #1c1c1e;
-  --ios-surface-alt: #2c2c2e;
+  --ios-bg: #f2f2f7;
+  --ios-surface: #ffffff;
+  --ios-surface-alt: #f9f9fb;
 
-  --ios-text: #ffffff;
-  --ios-text-secondary: rgba(235,235,245,0.78);
-  --ios-text-muted: rgba(235,235,245,0.45);
+  --ios-text: #000000;
+  --ios-text-secondary: rgba(60,60,67,0.78);
+  --ios-text-muted: rgba(60,60,67,0.45);
 
-  --ios-blue: #0a84ff;
-  --ios-green: #30d158;
-  --ios-red: #ff453a;
-  --ios-orange: #ff9f0a;
+  --ios-blue: #007aff;
+  --ios-green: #34c759;
+  --ios-red: #ff3b30;
+  --ios-orange: #ff9500;
 
-  --ios-separator: rgba(84,84,88,0.65);
+  --ios-separator: rgba(60,60,67,0.15);
 
   --ios-radius-lg: 14px;
   --ios-radius-md: 10px;
+  --ios-radius-sm: 7px;
 }
 
 /* =====================================================
@@ -45,7 +42,7 @@ body {
 }
 
 /* =====================================================
-   PANELS / BOXES (stronger than light variant)
+   PANELS / BOXES
 ===================================================== */
 .panel,
 .block,
@@ -67,7 +64,7 @@ body {
 }
 
 /* =====================================================
-   TABLES (torrent lists, files, peers)
+   TABLES – SETTINGS-STYLE DENSITY
 ===================================================== */
 .table {
   background-color: var(--ios-surface) !important;
@@ -78,18 +75,20 @@ body {
   background-color: var(--ios-surface-alt) !important;
   color: var(--ios-text-muted);
   font-weight: 600;
+  padding: 10px 12px;
 }
 
 .table > tbody > tr > td {
+  padding: 9px 12px;
   border-top: 1px solid var(--ios-separator) !important;
 }
 
 .table-hover > tbody > tr:hover {
-  background-color: rgba(255,255,255,0.04);
+  background-color: rgba(0,0,0,0.025);
 }
 
 /* =====================================================
-   BUTTONS (iOS dark system feel)
+   BUTTONS
 ===================================================== */
 .btn {
   background-color: var(--ios-surface-alt) !important;
@@ -99,10 +98,38 @@ body {
   font-weight: 600;
 }
 
-.btn-primary { background-color: var(--ios-blue) !important; border-color: var(--ios-blue) !important; }
-.btn-success { background-color: var(--ios-green) !important; border-color: var(--ios-green) !important; }
-.btn-danger  { background-color: var(--ios-red) !important; border-color: var(--ios-red) !important; }
+.btn-primary { background-color: var(--ios-blue) !important; border-color: var(--ios-blue) !important; color:#fff !important; }
+.btn-success { background-color: var(--ios-green) !important; border-color: var(--ios-green) !important; color:#fff !important; }
+.btn-danger  { background-color: var(--ios-red) !important; border-color: var(--ios-red) !important; color:#fff !important; }
 .btn-warning { background-color: var(--ios-orange) !important; border-color: var(--ios-orange) !important; color:#000 !important; }
+
+/* =====================================================
+   BADGES / PILLS / TAGS (iOS style)
+===================================================== */
+.badge,
+.label {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+
+.badge-primary,
+.label-primary { background-color: var(--ios-blue) !important; color:#fff !important; }
+.badge-success,
+.label-success { background-color: var(--ios-green) !important; color:#fff !important; }
+.badge-danger,
+.label-danger { background-color: var(--ios-red) !important; color:#fff !important; }
+.badge-warning,
+.label-warning { background-color: var(--ios-orange) !important; color:#000 !important; }
+
+/* Torrent tags */
+.torrent-tag,
+.tag {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
 
 /* =====================================================
    NAV TABS
@@ -134,23 +161,16 @@ body {
 
 .form-control:focus {
   border-color: var(--ios-blue);
-  box-shadow: 0 0 0 2px rgba(10,132,255,0.35);
+  box-shadow: 0 0 0 2px rgba(0,122,255,0.25);
 }
 
 /* =====================================================
-   CHAT (iMessage dark style)
+   CHAT
 ===================================================== */
 .chatbox-message {
   background-color: var(--ios-surface-alt) !important;
   border-radius: 16px;
 }
-
-/* =====================================================
-   TEXT COLORS
-===================================================== */
-.text-success { color: var(--ios-green) !important; }
-.text-danger  { color: var(--ios-red) !important; }
-.text-warning { color: var(--ios-orange) !important; }
 
 /* =====================================================
    LINKS
