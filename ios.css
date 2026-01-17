@@ -1,56 +1,58 @@
-/* ios-external-unit3d.css
+/* ios-dark-external-unit3d.css
    External CSS Stylesheet (Stacks on top of site theme)
-   Built following the SAME MODEL as Roardom/blu-themes
-   Intended base theme: UNIT3D Light (recommended)
+   iOS Dark – STRONGER variant
+   Built following Roardom/blu-themes external philosophy
 
-   Philosophy (IMPORTANT):
-   - Do NOT restyle everything
-   - Do NOT reset Bootstrap
-   - Do NOT fight layout
-   - Only adjust colors, radii, borders, spacing, typography
-   - Small, deliberate overrides that cascade naturally
+   Base theme expected: UNIT3D Light or Dark
+   (Works best on Light; Dark also acceptable)
+
+   This is intentionally stronger than Monochrome,
+   but still NOT a standalone theme.
 */
 
 /* =====================================================
-   iOS LIGHT COLOR TOKENS (used sparingly)
+   iOS DARK DESIGN TOKENS
 ===================================================== */
 :root {
-  --ios-bg: #f2f2f7;
-  --ios-surface: #ffffff;
-  --ios-surface-alt: #f9f9fb;
+  --ios-bg: #000000;
+  --ios-surface: #1c1c1e;
+  --ios-surface-alt: #2c2c2e;
 
-  --ios-text: #000000;
-  --ios-text-secondary: rgba(60,60,67,0.75);
-  --ios-text-muted: rgba(60,60,67,0.45);
+  --ios-text: #ffffff;
+  --ios-text-secondary: rgba(235,235,245,0.78);
+  --ios-text-muted: rgba(235,235,245,0.45);
 
-  --ios-blue: #007aff;
-  --ios-green: #34c759;
-  --ios-red: #ff3b30;
-  --ios-orange: #ff9500;
+  --ios-blue: #0a84ff;
+  --ios-green: #30d158;
+  --ios-red: #ff453a;
+  --ios-orange: #ff9f0a;
 
-  --ios-separator: rgba(60,60,67,0.15);
+  --ios-separator: rgba(84,84,88,0.65);
 
   --ios-radius-lg: 14px;
   --ios-radius-md: 10px;
 }
 
 /* =====================================================
-   GLOBAL TONE (light touch)
+   GLOBAL TONE
 ===================================================== */
 body {
+  background-color: var(--ios-bg) !important;
+  color: var(--ios-text-secondary);
   font-family: -apple-system, BlinkMacSystemFont,
                "SF Pro Text", "SF Pro Display",
                system-ui, sans-serif;
 }
 
 /* =====================================================
-   PANELS / BOXES (match blu-themes style)
+   PANELS / BOXES (stronger than light variant)
 ===================================================== */
 .panel,
 .block,
 .well,
 .box,
 .card {
+  background-color: var(--ios-surface) !important;
   border-radius: var(--ios-radius-lg);
   border-color: var(--ios-separator) !important;
 }
@@ -58,7 +60,9 @@ body {
 .panel-heading,
 .panel-footer,
 .box-header {
+  background-color: transparent !important;
   border-color: var(--ios-separator) !important;
+  color: var(--ios-text);
   font-weight: 600;
 }
 
@@ -66,89 +70,83 @@ body {
    TABLES (torrent lists, files, peers)
 ===================================================== */
 .table {
+  background-color: var(--ios-surface) !important;
   border-color: var(--ios-separator) !important;
 }
 
 .table > thead > tr > th {
-  font-weight: 600;
+  background-color: var(--ios-surface-alt) !important;
   color: var(--ios-text-muted);
+  font-weight: 600;
 }
 
 .table > tbody > tr > td {
   border-top: 1px solid var(--ios-separator) !important;
 }
 
-/* Subtle hover (very important for UNIT3D usability) */
 .table-hover > tbody > tr:hover {
-  background-color: rgba(0,0,0,0.02);
+  background-color: rgba(255,255,255,0.04);
 }
 
 /* =====================================================
-   BUTTONS (iOS feel, not replacement)
+   BUTTONS (iOS dark system feel)
 ===================================================== */
 .btn {
+  background-color: var(--ios-surface-alt) !important;
+  color: var(--ios-text) !important;
   border-radius: var(--ios-radius-md);
+  border-color: var(--ios-separator) !important;
   font-weight: 600;
 }
 
-.btn-primary {
-  background-color: var(--ios-blue) !important;
-  border-color: var(--ios-blue) !important;
-}
-
-.btn-success {
-  background-color: var(--ios-green) !important;
-  border-color: var(--ios-green) !important;
-}
-
-.btn-danger {
-  background-color: var(--ios-red) !important;
-  border-color: var(--ios-red) !important;
-}
-
-.btn-warning {
-  background-color: var(--ios-orange) !important;
-  border-color: var(--ios-orange) !important;
-}
+.btn-primary { background-color: var(--ios-blue) !important; border-color: var(--ios-blue) !important; }
+.btn-success { background-color: var(--ios-green) !important; border-color: var(--ios-green) !important; }
+.btn-danger  { background-color: var(--ios-red) !important; border-color: var(--ios-red) !important; }
+.btn-warning { background-color: var(--ios-orange) !important; border-color: var(--ios-orange) !important; color:#000 !important; }
 
 /* =====================================================
-   NAV TABS (blu-themes approach)
+   NAV TABS
 ===================================================== */
 .nav-tabs {
   border-bottom-color: var(--ios-separator);
 }
 
 .nav-tabs > li > a {
-  border-radius: var(--ios-radius-md) var(--ios-radius-md) 0 0;
+  color: var(--ios-text-secondary);
   font-weight: 600;
 }
 
 .nav-tabs > li.active > a {
+  background-color: var(--ios-surface) !important;
   border-color: var(--ios-separator) !important;
+  color: var(--ios-text) !important;
 }
 
 /* =====================================================
-   FORMS (minimal override)
+   FORMS
 ===================================================== */
 .form-control {
+  background-color: var(--ios-surface-alt) !important;
+  color: var(--ios-text) !important;
   border-radius: var(--ios-radius-md);
   border-color: var(--ios-separator);
 }
 
 .form-control:focus {
   border-color: var(--ios-blue);
-  box-shadow: 0 0 0 2px rgba(0,122,255,0.25);
+  box-shadow: 0 0 0 2px rgba(10,132,255,0.35);
 }
 
 /* =====================================================
-   CHAT (optional – follows modern-chat-bubbles logic)
+   CHAT (iMessage dark style)
 ===================================================== */
 .chatbox-message {
+  background-color: var(--ios-surface-alt) !important;
   border-radius: 16px;
 }
 
 /* =====================================================
-   TEXT COLORS (do NOT override layout colors)
+   TEXT COLORS
 ===================================================== */
 .text-success { color: var(--ios-green) !important; }
 .text-danger  { color: var(--ios-red) !important; }
@@ -157,13 +155,13 @@ body {
 /* =====================================================
    LINKS
 ===================================================== */
-a {
-  color: var(--ios-blue);
-}
+a { color: var(--ios-blue); }
+a:hover { filter: brightness(1.15); }
 
 /* =====================================================
    FOOTER
 ===================================================== */
 #l-footer {
+  background-color: var(--ios-surface) !important;
   border-top-color: var(--ios-separator);
 }
