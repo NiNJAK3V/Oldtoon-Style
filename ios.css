@@ -1,20 +1,23 @@
 /* ios-unit3d-light.css
-   Full external stylesheet for UNIT3D – designed to stack ONCE
-   Intended for use with the DEFAULT UNIT3D LIGHT THEME
-   This file does NOT rely on any other custom theme
+   COMPLETE external iOS-style stylesheet for UNIT3D
+   Designed to stack on TOP of the DEFAULT UNIT3D LIGHT THEME
+   One file only. No other custom themes required.
 
-   Load order:
-   1) UNIT3D default light theme
-   2) ios-unit3d-light.css   (this file)
+   Philosophy:
+   - Override ALL major UNIT3D UI surfaces
+   - Use higher specificity + !important where UNIT3D is strong
+   - Zero layout changes, visual only
+   - iOS 17 Light Mode look & feel
 */
 
 /* =====================================================
-   iOS 17 LIGHT MODE DESIGN TOKENS
+   iOS 17 LIGHT DESIGN TOKENS
 ===================================================== */
 :root {
   --ios-bg-main: #f2f2f7;
   --ios-bg-card: #ffffff;
   --ios-bg-card-alt: #f9f9fb;
+  --ios-bg-grouped: #f2f2f7;
   --ios-bg-header: rgba(255,255,255,0.85);
 
   --ios-text-primary: #000000;
@@ -28,15 +31,16 @@
 
   --ios-separator: rgba(60,60,67,0.15);
 
+  --ios-radius-xl: 20px;
   --ios-radius-lg: 16px;
   --ios-radius-md: 12px;
   --ios-radius-sm: 8px;
 }
 
 /* =====================================================
-   GLOBAL RESET / BASE
+   GLOBAL BASE RESET
 ===================================================== */
-body {
+html, body {
   background: var(--ios-bg-main) !important;
   color: var(--ios-text-secondary) !important;
   font-family: -apple-system, BlinkMacSystemFont,
@@ -44,7 +48,7 @@ body {
                system-ui, sans-serif;
 }
 
-/* Remove UNIT3D shadows & borders globally */
+/* Remove harsh shadows everywhere */
 *, *::before, *::after {
   box-shadow: none !important;
 }
@@ -54,23 +58,40 @@ body {
 ===================================================== */
 .hoe-right-header,
 .header,
-.navbar {
+.navbar,
+.navbar-default {
   background: var(--ios-bg-header) !important;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--ios-separator) !important;
 }
 
+.header a,
+.navbar a {
+  color: var(--ios-blue) !important;
+  font-weight: 600;
+}
+
 /* =====================================================
-   MAIN SURFACES (Cards / Panels / Blocks)
+   MAIN CONTENT WRAPPER
+===================================================== */
+.wrapper,
+.container,
+.content-wrapper {
+  background: var(--ios-bg-grouped) !important;
+}
+
+/* =====================================================
+   CARDS / PANELS / BOXES (Core UNIT3D UI)
 ===================================================== */
 .panel,
+.panel-default,
 .block,
 .well,
 .card,
+.box,
 .container > .block,
-.container > .well,
-.box {
+.container > .well {
   background: var(--ios-bg-card) !important;
   border-radius: var(--ios-radius-lg) !important;
   border: 1px solid var(--ios-separator) !important;
@@ -79,16 +100,20 @@ body {
 .panel-heading,
 .panel-footer,
 .card_head,
-.card_footer {
+.card_footer,
+.box-header {
   background: transparent !important;
   border-bottom: 1px solid var(--ios-separator) !important;
+  font-weight: 600;
 }
 
 /* =====================================================
-   BUTTONS (iOS system style)
+   BUTTONS (iOS system buttons)
 ===================================================== */
 .btn,
-.button {
+.button,
+input[type="submit"],
+input[type="button"] {
   background: var(--ios-bg-card-alt) !important;
   color: var(--ios-text-primary) !important;
   border-radius: var(--ios-radius-md) !important;
@@ -101,9 +126,7 @@ body {
 .btn-danger  { background: var(--ios-red) !important; color:#fff !important; }
 .btn-warning { background: var(--ios-orange) !important; color:#000 !important; }
 
-.btn:hover {
-  filter: brightness(1.05);
-}
+.btn:hover { filter: brightness(1.05); }
 
 /* =====================================================
    NAV TABS → iOS SEGMENTED CONTROL
@@ -119,6 +142,7 @@ body {
   background: transparent !important;
   color: var(--ios-text-secondary) !important;
   border-radius: var(--ios-radius-sm) !important;
+  border: none !important;
 }
 
 .nav-tabs > li.active > a {
@@ -127,19 +151,21 @@ body {
 }
 
 /* =====================================================
-   TABLES → iOS LIST STYLE
+   TABLES – TORRENT LISTS / FILE LISTS
 ===================================================== */
 .table-responsive {
   border-radius: var(--ios-radius-lg) !important;
   overflow: hidden;
 }
 
-table {
+table,
+.table {
   background: var(--ios-bg-card) !important;
   border: none !important;
 }
 
 .table > thead > tr > th {
+  background: var(--ios-bg-card-alt) !important;
   color: var(--ios-text-muted) !important;
   font-weight: 600;
 }
@@ -152,12 +178,25 @@ table {
   border-bottom: none !important;
 }
 
-/* Torrent state colors */
-.text-green { color: var(--ios-green) !important; }
-.text-red   { color: var(--ios-red) !important; }
+/* Torrent status colors */
+.text-green, .text-success { color: var(--ios-green) !important; }
+.text-red, .text-danger   { color: var(--ios-red) !important; }
+.text-warning             { color: var(--ios-orange) !important; }
 
 /* =====================================================
-   FORMS / INPUTS
+   TORRENT DETAIL PAGE (META BLOCKS)
+===================================================== */
+.torrent-description,
+.torrent-files,
+.torrent-peers,
+.torrent-stats {
+  background: var(--ios-bg-card) !important;
+  border-radius: var(--ios-radius-lg) !important;
+  border: 1px solid var(--ios-separator) !important;
+}
+
+/* =====================================================
+   FORMS / SEARCH / FILTERS
 ===================================================== */
 .form-control,
 select,
@@ -168,24 +207,39 @@ textarea {
   border: 1px solid var(--ios-separator) !important;
 }
 
-.form-control:focus {
+.form-control:focus,
+select:focus,
+textarea:focus {
   border-color: var(--ios-blue) !important;
   box-shadow: 0 0 0 4px rgba(0,122,255,0.25) !important;
 }
 
 /* =====================================================
-   CHAT (iMessage-inspired)
+   CHAT (UNIT3D CHATBOX)
 ===================================================== */
 .chatbox-message,
-#frame .content .messages ul li.sent {
+#frame .content .messages ul li.sent,
+#frame .content .messages ul li.replies {
   background: var(--ios-bg-card-alt) !important;
   border-radius: 18px !important;
   border: none !important;
 }
 
 .chatbox-message__content,
-.sent .text-bright {
+.sent .text-bright,
+.replies .text-bright {
   color: var(--ios-text-primary) !important;
+}
+
+/* =====================================================
+   USER PROFILES
+===================================================== */
+.profile-box,
+.user-info,
+.user-stats {
+  background: var(--ios-bg-card) !important;
+  border-radius: var(--ios-radius-lg) !important;
+  border: 1px solid var(--ios-separator) !important;
 }
 
 /* =====================================================
@@ -205,7 +259,7 @@ textarea {
 }
 
 /* =====================================================
-   LINKS / TEXT
+   LINKS / TYPOGRAPHY
 ===================================================== */
 a { color: var(--ios-blue) !important; }
 a:hover { filter: brightness(1.15); }
@@ -218,7 +272,8 @@ h1,h2,h3,h4,h5,h6 {
 /* =====================================================
    FOOTER
 ===================================================== */
-#l-footer {
+#l-footer,
+.footer {
   background: var(--ios-bg-card) !important;
   border-top: 1px solid var(--ios-separator) !important;
 }
