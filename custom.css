@@ -1,159 +1,105 @@
 /* =====================================================
-   UNIT3D – Standalone Premium Theme
+   UNIT3D – Standalone Core Layout Engine
+   Replaces: Bootstrap + AdminLTE + Theme CSS
    ===================================================== */
 
-/* ---------- COLORS ---------- */
-:root{
-  --bg-main:#0f1115;
-  --bg-panel:#151922;
-  --bg-card:#1b2030;
-  --bg-hover:#23293a;
-
-  --primary:#5cc8ff;
-  --accent:#ffb86c;
-  --success:#50fa7b;
-  --warning:#f1fa8c;
-  --danger:#ff5555;
-
-  --text-main:#eaeaf0;
-  --text-muted:#9aa0b3;
-  --border:#2a3042;
+/* ---------- RESET ---------- */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:#0f1115;
+  color:#eaeaf0;
 }
 
-/* ---------- GLOBAL ---------- */
-body{background:var(--bg-main);color:var(--text-main);}
-a{color:var(--primary)}
-a:hover{color:var(--accent)}
-hr{border-color:var(--border)}
+/* ---------- GRID SYSTEM ---------- */
+.container{max-width:1400px;margin:auto;padding:24px;}
+.row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+.col-12{grid-column:span 12}
+.col-9{grid-column:span 9}
+.col-8{grid-column:span 8}
+.col-6{grid-column:span 6}
+.col-4{grid-column:span 4}
+.col-3{grid-column:span 3}
+
+/* ---------- LAYOUT ---------- */
+.wrapper{min-height:100vh;display:grid;grid-template-columns:260px 1fr;grid-template-rows:64px 1fr auto;}
+.main-header{grid-column:1/3;background:#111827;border-bottom:1px solid #2a3042;}
+.main-sidebar{background:#151922;border-right:1px solid #2a3042;}
+.content-wrapper{padding:32px;}
+.main-footer{grid-column:1/3;padding:20px;text-align:center;border-top:1px solid #2a3042;color:#9aa0b3}
 
 /* ---------- NAVBAR ---------- */
-.main-header.navbar{
-  background:#111827;
-  border-bottom:1px solid var(--border);
-}
-.main-header.navbar .nav-link{color:var(--text-main)}
-.main-header.navbar .nav-link:hover{background:var(--bg-hover)}
+.main-header{display:flex;align-items:center;gap:20px;padding:0 24px;}
+.main-header .logo{font-weight:700;font-size:20px;}
+.main-header .navbar-nav{display:flex;gap:14px;margin-left:auto;}
+.main-header a{color:#eaeaf0;text-decoration:none;padding:10px 14px;border-radius:10px;}
+.main-header a:hover{background:#1b2030}
 
 /* ---------- SIDEBAR ---------- */
-.main-sidebar{
-  background:#151922;
-  border-right:1px solid var(--border);
+.main-sidebar{padding:24px;display:flex;flex-direction:column;gap:10px;}
+.main-sidebar a{
+  color:#9aa0b3;text-decoration:none;
+  padding:10px 14px;border-radius:10px;
 }
-.nav-sidebar .nav-link{
-  color:var(--text-muted);
-  border-radius:10px;
-}
-.nav-sidebar .nav-link.active,
-.nav-sidebar .nav-link:hover{
-  background:var(--bg-hover);
-  color:#fff;
-}
+.main-sidebar a.active,
+.main-sidebar a:hover{background:#1b2030;color:#fff}
 
 /* ---------- CONTENT ---------- */
-.content-wrapper{background:var(--bg-main);}
-.content-header h1{color:var(--primary);font-weight:700}
+.content-header h1{font-size:28px;margin-bottom:20px;color:#5cc8ff}
 
 /* ---------- CARDS ---------- */
-.card,.box,.info-box{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:14px;
+.card{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:16px;
+  padding:24px;
+  margin-bottom:24px;
 }
-.card-header{border-bottom:1px solid var(--border)}
-.card-title{color:var(--primary)}
+.card-header{font-weight:600;margin-bottom:14px;color:#5cc8ff}
 
 /* ---------- TABLES ---------- */
-.table{color:var(--text-main)}
-.table thead th{
-  background:#0f1320;
-  border-bottom:1px solid var(--border);
-  color:var(--primary);
-}
-.table-hover tbody tr:hover{background:var(--bg-hover)}
+.table{width:100%;border-collapse:collapse;}
+.table th,.table td{padding:14px;border-bottom:1px solid #2a3042;text-align:left;}
+.table thead th{color:#5cc8ff;font-weight:600;background:#0f1320;}
+.table tbody tr:hover{background:#1b2030}
 
 /* ---------- FORMS ---------- */
-.form-control,.form-select{
-  background:#0f1320;
-  border:1px solid var(--border);
-  color:#fff;
+.form-group{margin-bottom:18px}
+label{display:block;margin-bottom:6px;color:#9aa0b3}
+input,select,textarea{
+  width:100%;padding:12px;
+  background:#0f1320;border:1px solid #2a3042;
+  border-radius:10px;color:#fff;
 }
-.form-control:focus{border-color:var(--primary);box-shadow:none}
 
 /* ---------- BUTTONS ---------- */
-.btn-primary{background:#2563eb;border:none}
-.btn-success{background:#16a34a;border:none}
-.btn-danger{background:#dc2626;border:none}
+.btn{
+  padding:12px 22px;border-radius:12px;
+  border:none;cursor:pointer;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:#fff;font-weight:600;
+}
 
 /* ---------- ALERTS ---------- */
 .alert{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  color:var(--text-main);
+  padding:14px 18px;border-radius:12px;
+  background:#1b2030;border:1px solid #2a3042;
+  margin-bottom:18px;
 }
 
-/* ---------- BADGES ---------- */
-.badge{
-  background:#1f2933;
-  border:1px solid var(--border);
-  color:var(--accent);
+/* ---------- PAGINATION ---------- */
+.pagination{display:flex;gap:10px;justify-content:center;margin-top:20px;}
+.pagination a{
+  padding:10px 14px;border-radius:10px;
+  border:1px solid #2a3042;color:#eaeaf0;text-decoration:none;
 }
+.pagination a.active{background:#2563eb;border:none}
 
-/* =====================================================
-   TORRENT LIST PAGE
-   ===================================================== */
-
-.torrent-search,.torrent-filters,.card-filter{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:20px;
-}
-
-.torrent-filters .btn{
-  background:#1f2933;
-  border:1px solid var(--border);
-  color:var(--text-main);
-  border-radius:999px;
-  padding:6px 14px;
-}
-.torrent-filters .btn.active{
-  background:linear-gradient(135deg,#2563eb,#38bdf8);
-  color:#fff;
-}
-
-.table-torrents{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-}
-
-.table-torrents thead th{
-  background:#0f1320;
-  color:var(--primary);
-  font-weight:600;
-}
-
-.table-torrents tbody tr:hover{
-  background:var(--bg-hover);
-}
-
-.table-torrents td a.torrent-name{
-  font-size:15px;
-  font-weight:600;
-}
-
-.table-torrents .seeds{color:var(--success);font-weight:700}
-.table-torrents .leeches{color:var(--danger);font-weight:700}
-
-.pagination .page-link{
-  background:#151922;
-  border:1px solid var(--border);
-  color:var(--text-main);
-}
-.pagination .active .page-link{
-  background:linear-gradient(135deg,#2563eb,#38bdf8);
-  border:none;
-  color:#fff;
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .wrapper{grid-template-columns:1fr}
+  .main-sidebar{display:none}
+  .main-header{grid-column:1}
+  .main-footer{grid-column:1}
 }
