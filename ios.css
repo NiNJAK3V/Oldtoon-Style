@@ -1,63 +1,78 @@
-/* ios-unit3d.css
-   External override stylesheet for UNIT3D-based torrent trackers
-   Load AFTER the default theme (and monochrome.css)
-   Goal: iOS-style visuals without breaking UNIT3D layouts
+/* ios-unit3d-light.css
+   Full external stylesheet for UNIT3D – designed to stack ONCE
+   Intended for use with the DEFAULT UNIT3D LIGHT THEME
+   This file does NOT rely on any other custom theme
+
+   Load order:
+   1) UNIT3D default light theme
+   2) ios-unit3d-light.css   (this file)
 */
 
-/* ================================
-   iOS Design Tokens
-================================ */
+/* =====================================================
+   iOS 17 LIGHT MODE DESIGN TOKENS
+===================================================== */
 :root {
-  --ios-bg-main: #000000;
-  --ios-bg-card: #1c1c1e;
-  --ios-bg-card-alt: #2c2c2e;
-  --ios-bg-translucent: rgba(28,28,30,0.72);
+  --ios-bg-main: #f2f2f7;
+  --ios-bg-card: #ffffff;
+  --ios-bg-card-alt: #f9f9fb;
+  --ios-bg-header: rgba(255,255,255,0.85);
 
-  --ios-text-primary: #ffffff;
-  --ios-text-secondary: rgba(235,235,245,0.85);
-  --ios-text-muted: rgba(235,235,245,0.55);
+  --ios-text-primary: #000000;
+  --ios-text-secondary: #3c3c43;
+  --ios-text-muted: rgba(60,60,67,0.6);
 
-  --ios-blue: #0a84ff;
-  --ios-green: #30d158;
-  --ios-red: #ff453a;
-  --ios-orange: #ff9f0a;
+  --ios-blue: #007aff;
+  --ios-green: #34c759;
+  --ios-red: #ff3b30;
+  --ios-orange: #ff9500;
 
-  --ios-separator: rgba(84,84,88,0.6);
+  --ios-separator: rgba(60,60,67,0.15);
 
   --ios-radius-lg: 16px;
   --ios-radius-md: 12px;
   --ios-radius-sm: 8px;
 }
 
-/* ================================
-   Global Base
-================================ */
+/* =====================================================
+   GLOBAL RESET / BASE
+===================================================== */
 body {
-  background-color: var(--ios-bg-main) !important;
-  color: var(--ios-text-secondary);
+  background: var(--ios-bg-main) !important;
+  color: var(--ios-text-secondary) !important;
   font-family: -apple-system, BlinkMacSystemFont,
                "SF Pro Text", "SF Pro Display",
                system-ui, sans-serif;
 }
 
-/* Remove harsh shadows */
+/* Remove UNIT3D shadows & borders globally */
 *, *::before, *::after {
   box-shadow: none !important;
 }
 
-/* ================================
-   Cards / Panels / Blocks
-================================ */
+/* =====================================================
+   HEADER / NAVBAR (iOS frosted bar)
+===================================================== */
+.hoe-right-header,
+.header,
+.navbar {
+  background: var(--ios-bg-header) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--ios-separator) !important;
+}
+
+/* =====================================================
+   MAIN SURFACES (Cards / Panels / Blocks)
+===================================================== */
 .panel,
 .block,
 .well,
 .card,
 .container > .block,
-.container > .well {
-  background: var(--ios-bg-translucent) !important;
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border-radius: var(--ios-radius-lg);
+.container > .well,
+.box {
+  background: var(--ios-bg-card) !important;
+  border-radius: var(--ios-radius-lg) !important;
   border: 1px solid var(--ios-separator) !important;
 }
 
@@ -69,52 +84,41 @@ body {
   border-bottom: 1px solid var(--ios-separator) !important;
 }
 
-/* ================================
-   Top Header / Navbar
-================================ */
-.hoe-right-header,
-.header {
-  background: var(--ios-bg-translucent) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--ios-separator);
-}
-
-/* ================================
-   Buttons (UNIT3D safe)
-================================ */
+/* =====================================================
+   BUTTONS (iOS system style)
+===================================================== */
 .btn,
 .button {
   background: var(--ios-bg-card-alt) !important;
   color: var(--ios-text-primary) !important;
-  border-radius: var(--ios-radius-md);
-  border: none !important;
+  border-radius: var(--ios-radius-md) !important;
+  border: 1px solid var(--ios-separator) !important;
   font-weight: 600;
 }
 
-.btn-primary { background: var(--ios-blue) !important; }
-.btn-success { background: var(--ios-green) !important; }
-.btn-danger  { background: var(--ios-red) !important; }
+.btn-primary { background: var(--ios-blue) !important; color:#fff !important; }
+.btn-success { background: var(--ios-green) !important; color:#fff !important; }
+.btn-danger  { background: var(--ios-red) !important; color:#fff !important; }
 .btn-warning { background: var(--ios-orange) !important; color:#000 !important; }
 
 .btn:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.05);
 }
 
-/* ================================
-   Navigation Tabs → iOS Segmented
-================================ */
+/* =====================================================
+   NAV TABS → iOS SEGMENTED CONTROL
+===================================================== */
 .nav-tabs {
   background: var(--ios-bg-card-alt) !important;
-  padding: 4px;
-  border-radius: var(--ios-radius-md);
-  border: none !important;
+  padding: 4px !important;
+  border-radius: var(--ios-radius-md) !important;
+  border: 1px solid var(--ios-separator) !important;
 }
 
 .nav-tabs > li > a {
   background: transparent !important;
   color: var(--ios-text-secondary) !important;
-  border-radius: var(--ios-radius-sm);
+  border-radius: var(--ios-radius-sm) !important;
 }
 
 .nav-tabs > li.active > a {
@@ -122,17 +126,22 @@ body {
   color: var(--ios-text-primary) !important;
 }
 
-/* ================================
-   Tables → iOS List Style
-================================ */
+/* =====================================================
+   TABLES → iOS LIST STYLE
+===================================================== */
 .table-responsive {
-  border-radius: var(--ios-radius-lg);
+  border-radius: var(--ios-radius-lg) !important;
   overflow: hidden;
 }
 
 table {
   background: var(--ios-bg-card) !important;
   border: none !important;
+}
+
+.table > thead > tr > th {
+  color: var(--ios-text-muted) !important;
+  font-weight: 600;
 }
 
 .table > tbody > tr > td {
@@ -143,30 +152,30 @@ table {
   border-bottom: none !important;
 }
 
-/* Torrent row highlights */
+/* Torrent state colors */
 .text-green { color: var(--ios-green) !important; }
 .text-red   { color: var(--ios-red) !important; }
 
-/* ================================
-   Forms / Inputs
-================================ */
+/* =====================================================
+   FORMS / INPUTS
+===================================================== */
 .form-control,
 select,
 textarea {
   background: var(--ios-bg-card-alt) !important;
   color: var(--ios-text-primary) !important;
-  border-radius: var(--ios-radius-md);
+  border-radius: var(--ios-radius-md) !important;
   border: 1px solid var(--ios-separator) !important;
 }
 
 .form-control:focus {
   border-color: var(--ios-blue) !important;
-  box-shadow: 0 0 0 4px rgba(10,132,255,0.25) !important;
+  box-shadow: 0 0 0 4px rgba(0,122,255,0.25) !important;
 }
 
-/* ================================
-   Chat (UNIT3D)
-================================ */
+/* =====================================================
+   CHAT (iMessage-inspired)
+===================================================== */
 .chatbox-message,
 #frame .content .messages ul li.sent {
   background: var(--ios-bg-card-alt) !important;
@@ -179,15 +188,15 @@ textarea {
   color: var(--ios-text-primary) !important;
 }
 
-/* ================================
-   Pagination
-================================ */
+/* =====================================================
+   PAGINATION
+===================================================== */
 .pagination > li > a,
 .pagination > li > span {
   background: var(--ios-bg-card-alt) !important;
   color: var(--ios-text-secondary) !important;
   border-radius: var(--ios-radius-md) !important;
-  border: none !important;
+  border: 1px solid var(--ios-separator) !important;
 }
 
 .pagination > .active > a {
@@ -195,25 +204,30 @@ textarea {
   color: #fff !important;
 }
 
-/* ================================
-   Footer
-================================ */
-#l-footer {
-  background: var(--ios-bg-card) !important;
-  border-top: 1px solid var(--ios-separator);
-}
-
-/* ================================
-   Links
-================================ */
+/* =====================================================
+   LINKS / TEXT
+===================================================== */
 a { color: var(--ios-blue) !important; }
 a:hover { filter: brightness(1.15); }
 
-/* ================================
-   Subtle separators instead of borders
-================================ */
+h1,h2,h3,h4,h5,h6 {
+  color: var(--ios-text-primary) !important;
+  font-weight: 600;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+#l-footer {
+  background: var(--ios-bg-card) !important;
+  border-top: 1px solid var(--ios-separator) !important;
+}
+
+/* =====================================================
+   SEPARATORS
+===================================================== */
 hr {
-  border: none;
+  border: none !important;
   height: 1px;
   background: var(--ios-separator);
 }
