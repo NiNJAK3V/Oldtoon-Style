@@ -1,28 +1,27 @@
-/* ios-unit3d-light.css
-   COMPLETE external iOS-style stylesheet for UNIT3D
-   Designed to stack on TOP of the DEFAULT UNIT3D LIGHT THEME
-   One file only. No other custom themes required.
+/* ios-external-unit3d.css
+   External CSS Stylesheet (Stacks on top of site theme)
+   Built following the SAME MODEL as Roardom/blu-themes
+   Intended base theme: UNIT3D Light (recommended)
 
-   Philosophy:
-   - Override ALL major UNIT3D UI surfaces
-   - Use higher specificity + !important where UNIT3D is strong
-   - Zero layout changes, visual only
-   - iOS 17 Light Mode look & feel
+   Philosophy (IMPORTANT):
+   - Do NOT restyle everything
+   - Do NOT reset Bootstrap
+   - Do NOT fight layout
+   - Only adjust colors, radii, borders, spacing, typography
+   - Small, deliberate overrides that cascade naturally
 */
 
 /* =====================================================
-   iOS 17 LIGHT DESIGN TOKENS
+   iOS LIGHT COLOR TOKENS (used sparingly)
 ===================================================== */
 :root {
-  --ios-bg-main: #f2f2f7;
-  --ios-bg-card: #ffffff;
-  --ios-bg-card-alt: #f9f9fb;
-  --ios-bg-grouped: #f2f2f7;
-  --ios-bg-header: rgba(255,255,255,0.85);
+  --ios-bg: #f2f2f7;
+  --ios-surface: #ffffff;
+  --ios-surface-alt: #f9f9fb;
 
-  --ios-text-primary: #000000;
-  --ios-text-secondary: #3c3c43;
-  --ios-text-muted: rgba(60,60,67,0.6);
+  --ios-text: #000000;
+  --ios-text-secondary: rgba(60,60,67,0.75);
+  --ios-text-muted: rgba(60,60,67,0.45);
 
   --ios-blue: #007aff;
   --ios-green: #34c759;
@@ -31,258 +30,140 @@
 
   --ios-separator: rgba(60,60,67,0.15);
 
-  --ios-radius-xl: 20px;
-  --ios-radius-lg: 16px;
-  --ios-radius-md: 12px;
-  --ios-radius-sm: 8px;
+  --ios-radius-lg: 14px;
+  --ios-radius-md: 10px;
 }
 
 /* =====================================================
-   GLOBAL BASE RESET
+   GLOBAL TONE (light touch)
 ===================================================== */
-html, body {
-  background: var(--ios-bg-main) !important;
-  color: var(--ios-text-secondary) !important;
+body {
   font-family: -apple-system, BlinkMacSystemFont,
                "SF Pro Text", "SF Pro Display",
                system-ui, sans-serif;
 }
 
-/* Remove harsh shadows everywhere */
-*, *::before, *::after {
-  box-shadow: none !important;
-}
-
 /* =====================================================
-   HEADER / NAVBAR (iOS frosted bar)
-===================================================== */
-.hoe-right-header,
-.header,
-.navbar,
-.navbar-default {
-  background: var(--ios-bg-header) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--ios-separator) !important;
-}
-
-.header a,
-.navbar a {
-  color: var(--ios-blue) !important;
-  font-weight: 600;
-}
-
-/* =====================================================
-   MAIN CONTENT WRAPPER
-===================================================== */
-.wrapper,
-.container,
-.content-wrapper {
-  background: var(--ios-bg-grouped) !important;
-}
-
-/* =====================================================
-   CARDS / PANELS / BOXES (Core UNIT3D UI)
+   PANELS / BOXES (match blu-themes style)
 ===================================================== */
 .panel,
-.panel-default,
 .block,
 .well,
-.card,
 .box,
-.container > .block,
-.container > .well {
-  background: var(--ios-bg-card) !important;
-  border-radius: var(--ios-radius-lg) !important;
-  border: 1px solid var(--ios-separator) !important;
+.card {
+  border-radius: var(--ios-radius-lg);
+  border-color: var(--ios-separator) !important;
 }
 
 .panel-heading,
 .panel-footer,
-.card_head,
-.card_footer,
 .box-header {
-  background: transparent !important;
-  border-bottom: 1px solid var(--ios-separator) !important;
+  border-color: var(--ios-separator) !important;
   font-weight: 600;
 }
 
 /* =====================================================
-   BUTTONS (iOS system buttons)
+   TABLES (torrent lists, files, peers)
 ===================================================== */
-.btn,
-.button,
-input[type="submit"],
-input[type="button"] {
-  background: var(--ios-bg-card-alt) !important;
-  color: var(--ios-text-primary) !important;
-  border-radius: var(--ios-radius-md) !important;
-  border: 1px solid var(--ios-separator) !important;
-  font-weight: 600;
-}
-
-.btn-primary { background: var(--ios-blue) !important; color:#fff !important; }
-.btn-success { background: var(--ios-green) !important; color:#fff !important; }
-.btn-danger  { background: var(--ios-red) !important; color:#fff !important; }
-.btn-warning { background: var(--ios-orange) !important; color:#000 !important; }
-
-.btn:hover { filter: brightness(1.05); }
-
-/* =====================================================
-   NAV TABS → iOS SEGMENTED CONTROL
-===================================================== */
-.nav-tabs {
-  background: var(--ios-bg-card-alt) !important;
-  padding: 4px !important;
-  border-radius: var(--ios-radius-md) !important;
-  border: 1px solid var(--ios-separator) !important;
-}
-
-.nav-tabs > li > a {
-  background: transparent !important;
-  color: var(--ios-text-secondary) !important;
-  border-radius: var(--ios-radius-sm) !important;
-  border: none !important;
-}
-
-.nav-tabs > li.active > a {
-  background: var(--ios-bg-card) !important;
-  color: var(--ios-text-primary) !important;
-}
-
-/* =====================================================
-   TABLES – TORRENT LISTS / FILE LISTS
-===================================================== */
-.table-responsive {
-  border-radius: var(--ios-radius-lg) !important;
-  overflow: hidden;
-}
-
-table,
 .table {
-  background: var(--ios-bg-card) !important;
-  border: none !important;
+  border-color: var(--ios-separator) !important;
 }
 
 .table > thead > tr > th {
-  background: var(--ios-bg-card-alt) !important;
-  color: var(--ios-text-muted) !important;
   font-weight: 600;
+  color: var(--ios-text-muted);
 }
 
 .table > tbody > tr > td {
-  border-bottom: 1px solid var(--ios-separator) !important;
+  border-top: 1px solid var(--ios-separator) !important;
 }
 
-.table > tbody > tr:last-child > td {
-  border-bottom: none !important;
-}
-
-/* Torrent status colors */
-.text-green, .text-success { color: var(--ios-green) !important; }
-.text-red, .text-danger   { color: var(--ios-red) !important; }
-.text-warning             { color: var(--ios-orange) !important; }
-
-/* =====================================================
-   TORRENT DETAIL PAGE (META BLOCKS)
-===================================================== */
-.torrent-description,
-.torrent-files,
-.torrent-peers,
-.torrent-stats {
-  background: var(--ios-bg-card) !important;
-  border-radius: var(--ios-radius-lg) !important;
-  border: 1px solid var(--ios-separator) !important;
+/* Subtle hover (very important for UNIT3D usability) */
+.table-hover > tbody > tr:hover {
+  background-color: rgba(0,0,0,0.02);
 }
 
 /* =====================================================
-   FORMS / SEARCH / FILTERS
+   BUTTONS (iOS feel, not replacement)
 ===================================================== */
-.form-control,
-select,
-textarea {
-  background: var(--ios-bg-card-alt) !important;
-  color: var(--ios-text-primary) !important;
-  border-radius: var(--ios-radius-md) !important;
-  border: 1px solid var(--ios-separator) !important;
-}
-
-.form-control:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--ios-blue) !important;
-  box-shadow: 0 0 0 4px rgba(0,122,255,0.25) !important;
-}
-
-/* =====================================================
-   CHAT (UNIT3D CHATBOX)
-===================================================== */
-.chatbox-message,
-#frame .content .messages ul li.sent,
-#frame .content .messages ul li.replies {
-  background: var(--ios-bg-card-alt) !important;
-  border-radius: 18px !important;
-  border: none !important;
-}
-
-.chatbox-message__content,
-.sent .text-bright,
-.replies .text-bright {
-  color: var(--ios-text-primary) !important;
-}
-
-/* =====================================================
-   USER PROFILES
-===================================================== */
-.profile-box,
-.user-info,
-.user-stats {
-  background: var(--ios-bg-card) !important;
-  border-radius: var(--ios-radius-lg) !important;
-  border: 1px solid var(--ios-separator) !important;
-}
-
-/* =====================================================
-   PAGINATION
-===================================================== */
-.pagination > li > a,
-.pagination > li > span {
-  background: var(--ios-bg-card-alt) !important;
-  color: var(--ios-text-secondary) !important;
-  border-radius: var(--ios-radius-md) !important;
-  border: 1px solid var(--ios-separator) !important;
-}
-
-.pagination > .active > a {
-  background: var(--ios-blue) !important;
-  color: #fff !important;
-}
-
-/* =====================================================
-   LINKS / TYPOGRAPHY
-===================================================== */
-a { color: var(--ios-blue) !important; }
-a:hover { filter: brightness(1.15); }
-
-h1,h2,h3,h4,h5,h6 {
-  color: var(--ios-text-primary) !important;
+.btn {
+  border-radius: var(--ios-radius-md);
   font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--ios-blue) !important;
+  border-color: var(--ios-blue) !important;
+}
+
+.btn-success {
+  background-color: var(--ios-green) !important;
+  border-color: var(--ios-green) !important;
+}
+
+.btn-danger {
+  background-color: var(--ios-red) !important;
+  border-color: var(--ios-red) !important;
+}
+
+.btn-warning {
+  background-color: var(--ios-orange) !important;
+  border-color: var(--ios-orange) !important;
+}
+
+/* =====================================================
+   NAV TABS (blu-themes approach)
+===================================================== */
+.nav-tabs {
+  border-bottom-color: var(--ios-separator);
+}
+
+.nav-tabs > li > a {
+  border-radius: var(--ios-radius-md) var(--ios-radius-md) 0 0;
+  font-weight: 600;
+}
+
+.nav-tabs > li.active > a {
+  border-color: var(--ios-separator) !important;
+}
+
+/* =====================================================
+   FORMS (minimal override)
+===================================================== */
+.form-control {
+  border-radius: var(--ios-radius-md);
+  border-color: var(--ios-separator);
+}
+
+.form-control:focus {
+  border-color: var(--ios-blue);
+  box-shadow: 0 0 0 2px rgba(0,122,255,0.25);
+}
+
+/* =====================================================
+   CHAT (optional – follows modern-chat-bubbles logic)
+===================================================== */
+.chatbox-message {
+  border-radius: 16px;
+}
+
+/* =====================================================
+   TEXT COLORS (do NOT override layout colors)
+===================================================== */
+.text-success { color: var(--ios-green) !important; }
+.text-danger  { color: var(--ios-red) !important; }
+.text-warning { color: var(--ios-orange) !important; }
+
+/* =====================================================
+   LINKS
+===================================================== */
+a {
+  color: var(--ios-blue);
 }
 
 /* =====================================================
    FOOTER
 ===================================================== */
-#l-footer,
-.footer {
-  background: var(--ios-bg-card) !important;
-  border-top: 1px solid var(--ios-separator) !important;
-}
-
-/* =====================================================
-   SEPARATORS
-===================================================== */
-hr {
-  border: none !important;
-  height: 1px;
-  background: var(--ios-separator);
+#l-footer {
+  border-top-color: var(--ios-separator);
 }
