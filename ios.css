@@ -1,287 +1,219 @@
-/* ==========================================================================
-   iOS Dark Mode Theme for Blu – Heavy Blur Variant (2025–2026 feeling)
-   Deep blacks + strong glassmorphism/translucency + vibrant accents
-   ========================================================================== */
+/* ios-unit3d.css
+   External override stylesheet for UNIT3D-based torrent trackers
+   Load AFTER the default theme (and monochrome.css)
+   Goal: iOS-style visuals without breaking UNIT3D layouts
+*/
 
+/* ================================
+   iOS Design Tokens
+================================ */
 :root {
-  /* ── System Colors (deep dark iOS) ────────────────────────────────────── */
-  --system-background:          #000000;
-  --secondary-background:       rgba(28, 28, 30, 0.92);
-  --tertiary-background:        rgba(44, 44, 46, 0.88);
-  --grouped-background:         rgba(29, 29, 31, 0.75);
-  --card-background:            rgba(28, 28, 30, 0.78);
+  --ios-bg-main: #000000;
+  --ios-bg-card: #1c1c1e;
+  --ios-bg-card-alt: #2c2c2e;
+  --ios-bg-translucent: rgba(28,28,30,0.72);
 
-  /* ── Text ─────────────────────────────────────────────────────────────── */
-  --primary-text:               #ffffffeb;
-  --secondary-text:             #ffffffc7;
-  --tertiary-text:              #ffffff99;
-  --quaternary-text:            #ffffff66;
+  --ios-text-primary: #ffffff;
+  --ios-text-secondary: rgba(235,235,245,0.85);
+  --ios-text-muted: rgba(235,235,245,0.55);
 
-  /* ── Separators & Borders ─────────────────────────────────────────────── */
-  --separator:                  rgba(84, 84, 88, 0.36);
-  --hairline:                   rgba(84, 84, 88, 0.50);
-  --strong-separator:           rgba(84, 84, 88, 0.65);
+  --ios-blue: #0a84ff;
+  --ios-green: #30d158;
+  --ios-red: #ff453a;
+  --ios-orange: #ff9f0a;
 
-  /* ── Accents & Semantic Colors ────────────────────────────────────────── */
-  --accent:                     #0a84ff;      /* iOS vibrant blue */
-  --accent-pressed:             #0066cc;
-  --success:                    #30d158;
-  --warning:                    #ff9f0a;
-  --danger:                     #ff453a;
-  --destructive:                #ff453a;
+  --ios-separator: rgba(84,84,88,0.6);
 
-  /* ── Heavy Translucency & Blur (the core of this variant) ─────────────── */
-  --blur-radius:                32px;         /* strong blur */
-  --blur-radius-strong:         48px;
-  --navbar-blur:                rgba(0, 0, 0, 0.72);
-  --card-blur:                  rgba(28, 28, 30, 0.65);
-  --popover-blur:               rgba(36, 36, 38, 0.82);
-
-  /* ── Shadows (softer but visible in dark mode) ────────────────────────── */
-  --shadow-sm:                  0 2px 8px rgba(0,0,0,0.55);
-  --shadow-md:                  0 8px 24px rgba(0,0,0,0.65);
-  --shadow-lg:                  0 16px 40px rgba(0,0,0,0.75);
-  --shadow-hover:               0 20px 48px rgba(0,0,0,0.85);
-
-  /* ── Corner Radii (modern iOS generous rounding) ──────────────────────── */
-  --radius-sm:                  12px;
-  --radius-md:                  16px;
-  --radius-lg:                  20px;
-  --radius-xl:                  26px;
-  --radius-xxl:                 32px;
-
-  /* ── Typography weights ───────────────────────────────────────────────── */
-  --font-weight-regular:        400;
-  --font-weight-medium:         500;
-  --font-weight-semibold:       600;
-
-  /* Compatibility mappings with original variables */
-  --color-primary:              var(--accent);
-  --color-success:              var(--success);
-  --color-info:                 var(--accent);
-  --color-warning:              var(--warning);
-  --color-danger:               var(--danger);
-  --color-grey-bg-1:            var(--tertiary-background);
-  --color-grey-bg-2:            var(--card-background);
-  --color-grey-bg-3:            var(--secondary-background);
-  --color-grey-bg-4:            var(--system-background);
-  --color-grey-text-1:          var(--primary-text);
-  --color-grey-text-2:          var(--secondary-text);
+  --ios-radius-lg: 16px;
+  --ios-radius-md: 12px;
+  --ios-radius-sm: 8px;
 }
 
-/* ==========================================================================
+/* ================================
    Global Base
-   ========================================================================== */
-
+================================ */
 body {
-  background-color: var(--system-background);
-  color: var(--primary-text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--ios-bg-main) !important;
+  color: var(--ios-text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont,
+               "SF Pro Text", "SF Pro Display",
+               system-ui, sans-serif;
 }
 
-/* Main containers – heavy glass effect */
-#main-content,
-.inner-content,
-.container-fluid > .block,
+/* Remove harsh shadows */
+*, *::before, *::after {
+  box-shadow: none !important;
+}
+
+/* ================================
+   Cards / Panels / Blocks
+================================ */
 .panel,
-.well,
-.box,
-.container.box,
 .block,
-.card {
-  background-color: var(--card-background);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--separator);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(var(--blur-radius));
-  -webkit-backdrop-filter: blur(var(--blur-radius));
-  overflow: hidden;
+.well,
+.card,
+.container > .block,
+.container > .well {
+  background: var(--ios-bg-translucent) !important;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-radius: var(--ios-radius-lg);
+  border: 1px solid var(--ios-separator) !important;
 }
 
-/* Very pronounced card feeling */
-.panel, .block, .well, .card, .container.box {
-  margin: 16px 0;
-  border-radius: var(--radius-xl);
+.panel-heading,
+.panel-footer,
+.card_head,
+.card_footer {
+  background: transparent !important;
+  border-bottom: 1px solid var(--ios-separator) !important;
 }
 
-/* ==========================================================================
-   Navigation / Headers / Sidebars – strongest blur here
-   ========================================================================== */
-
+/* ================================
+   Top Header / Navbar
+================================ */
 .hoe-right-header,
-.hoe-left-header,
-#hoeapp-wrapper[hoe-device-type="phone"] .hoe-right-header {
-  background: var(--navbar-blur) !important;
-  backdrop-filter: saturate(180%) blur(var(--blur-radius-strong));
-  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-radius-strong));
-  border-bottom: 1px solid var(--hairline);
+.header {
+  background: var(--ios-bg-translucent) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ios-separator);
 }
 
-#hoeapp-container[hoe-color-type="lpanel-bg5"] #hoe-left-panel {
-  background: var(--navbar-blur);
-  backdrop-filter: blur(var(--blur-radius-strong));
-}
-
-/* ==========================================================================
-   Buttons – vibrant + glass effect
-   ========================================================================== */
-
+/* ================================
+   Buttons (UNIT3D safe)
+================================ */
 .btn,
-.btn-primary, .btn-info, .btn-success, .btn-warning, .btn-danger,
-.bbcode-spoiler-button, .imgbb-button {
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 11px 20px;
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: -0.01em;
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background-image: none !important;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(12px);
+.button {
+  background: var(--ios-bg-card-alt) !important;
+  color: var(--ios-text-primary) !important;
+  border-radius: var(--ios-radius-md);
+  border: none !important;
+  font-weight: 600;
 }
 
-.btn-primary,
-.btn-primary:active,
-.btn-primary:hover {
-  background: linear-gradient(to bottom, var(--accent), var(--accent-pressed)) !important;
-  color: white !important;
+.btn-primary { background: var(--ios-blue) !important; }
+.btn-success { background: var(--ios-green) !important; }
+.btn-danger  { background: var(--ios-red) !important; }
+.btn-warning { background: var(--ios-orange) !important; color:#000 !important; }
+
+.btn:hover {
+  filter: brightness(1.08);
 }
 
-.btn-success  { background-color: var(--success)  !important; color: white; }
-.btn-warning  { background-color: var(--warning)  !important; color: white; }
-.btn-danger   { background-color: var(--danger)   !important; color: white; }
-
-.btn:hover,
-.btn:active,
-.btn:focus {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+/* ================================
+   Navigation Tabs → iOS Segmented
+================================ */
+.nav-tabs {
+  background: var(--ios-bg-card-alt) !important;
+  padding: 4px;
+  border-radius: var(--ios-radius-md);
+  border: none !important;
 }
 
-/* ==========================================================================
-   Cards & Torrent Items
-   ========================================================================== */
-
-.card.is-torrent,
-.torrent-card,
-.torrent-row,
-.article-card {
-  border-radius: var(--radius-lg);
-  background: var(--card-background);
-  border: 1px solid var(--separator);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(var(--blur-radius));
-  transition: transform 0.28s, box-shadow 0.28s;
+.nav-tabs > li > a {
+  background: transparent !important;
+  color: var(--ios-text-secondary) !important;
+  border-radius: var(--ios-radius-sm);
 }
 
-.card.is-torrent:hover,
-.torrent-row:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+.nav-tabs > li.active > a {
+  background: var(--ios-bg-card) !important;
+  color: var(--ios-text-primary) !important;
 }
 
-/* ==========================================================================
-   Tables – subtle dark glass
-   ========================================================================== */
-
-.table-responsive .table {
-  background: var(--card-background);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--separator);
+/* ================================
+   Tables → iOS List Style
+================================ */
+.table-responsive {
+  border-radius: var(--ios-radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(12px);
 }
 
-.table > thead > tr > th {
-  background: rgba(255,255,255,0.04);
-  color: var(--secondary-text);
-  font-weight: var(--font-weight-semibold);
-  border-bottom: 1px solid var(--separator);
+table {
+  background: var(--ios-bg-card) !important;
+  border: none !important;
 }
 
-.table > tbody > tr:nth-child(odd) {
-  background-color: rgba(255,255,255,0.03);
+.table > tbody > tr > td {
+  border-bottom: 1px solid var(--ios-separator) !important;
 }
 
-.table > tbody > tr:hover {
-  background-color: rgba(10, 132, 255, 0.12) !important;
+.table > tbody > tr:last-child > td {
+  border-bottom: none !important;
 }
 
-/* ==========================================================================
-   Chat / Messages
-   ========================================================================== */
+/* Torrent row highlights */
+.text-green { color: var(--ios-green) !important; }
+.text-red   { color: var(--ios-red) !important; }
 
-#frame > .content {
-  background: var(--card-background);
-  border-radius: var(--radius-lg);
-  backdrop-filter: blur(var(--blur-radius));
-}
-
-.chatbox-message {
-  background: transparent;
-  border-bottom: 1px solid var(--separator);
-  padding: 12px 16px;
-}
-
-.sent .text-bright {
-  color: var(--primary-text);
-}
-
-/* ==========================================================================
-   Forms & Inputs
-   ========================================================================== */
-
+/* ================================
+   Forms / Inputs
+================================ */
 .form-control,
-textarea,
-select {
-  background-color: rgba(255,255,255,0.08);
-  border: 1px solid var(--separator);
-  border-radius: var(--radius-md);
-  color: var(--primary-text);
-  padding: 11px 15px;
+select,
+textarea {
+  background: var(--ios-bg-card-alt) !important;
+  color: var(--ios-text-primary) !important;
+  border-radius: var(--ios-radius-md);
+  border: 1px solid var(--ios-separator) !important;
 }
 
 .form-control:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(10,132,255,0.28);
+  border-color: var(--ios-blue) !important;
+  box-shadow: 0 0 0 4px rgba(10,132,255,0.25) !important;
 }
 
-/* ==========================================================================
-   Misc Elements
-   ========================================================================== */
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-text);
+/* ================================
+   Chat (UNIT3D)
+================================ */
+.chatbox-message,
+#frame .content .messages ul li.sent {
+  background: var(--ios-bg-card-alt) !important;
+  border-radius: 18px !important;
+  border: none !important;
 }
 
-.text-muted, .text-secondary, .time,
-.meta-info .text-muted {
-  color: var(--tertiary-text) !important;
+.chatbox-message__content,
+.sent .text-bright {
+  color: var(--ios-text-primary) !important;
 }
 
+/* ================================
+   Pagination
+================================ */
+.pagination > li > a,
+.pagination > li > span {
+  background: var(--ios-bg-card-alt) !important;
+  color: var(--ios-text-secondary) !important;
+  border-radius: var(--ios-radius-md) !important;
+  border: none !important;
+}
+
+.pagination > .active > a {
+  background: var(--ios-blue) !important;
+  color: #fff !important;
+}
+
+/* ================================
+   Footer
+================================ */
+#l-footer {
+  background: var(--ios-bg-card) !important;
+  border-top: 1px solid var(--ios-separator);
+}
+
+/* ================================
+   Links
+================================ */
+a { color: var(--ios-blue) !important; }
+a:hover { filter: brightness(1.15); }
+
+/* ================================
+   Subtle separators instead of borders
+================================ */
 hr {
-  border-color: var(--separator);
+  border: none;
+  height: 1px;
+  background: var(--ios-separator);
 }
-
-/* ==========================================================================
-   Mobile Adjustments
-   ========================================================================== */
-
-@media (max-width: 767px) {
-  :root {
-    --radius-lg: 18px;
-    --radius-xl: 24px;
-    --blur-radius: 28px;
-  }
-
-  .panel, .block, .card, .well {
-    margin: 12px 6px;
-    border-radius: var(--radius-lg);
-  }
-}
-
-/* ==========================================================================
-   End of iOS Dark Heavy-Blur Theme
-   ========================================================================== */
