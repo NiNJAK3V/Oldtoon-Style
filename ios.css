@@ -1,60 +1,61 @@
 /* ==========================================================================
-   iOS Light Mode Theme for Blu (2025–2026 aesthetic)
-   Inspired by iOS 18 / iOS 19 feel – translucent, soft, clean, rounded
+   iOS Dark Mode Theme for Blu – Heavy Blur Variant (2025–2026 feeling)
+   Deep blacks + strong glassmorphism/translucency + vibrant accents
    ========================================================================== */
 
 :root {
-  /* ── System Colors ────────────────────────────────────────────────────── */
-  --system-background:          #f2f2f7;
-  --secondary-background:       #ffffff;
-  --tertiary-background:        #f0f0f5;
-  --grouped-background:         #e5e5ea;
-  --card-background:            rgba(255, 255, 255, 0.92);
+  /* ── System Colors (deep dark iOS) ────────────────────────────────────── */
+  --system-background:          #000000;
+  --secondary-background:       rgba(28, 28, 30, 0.92);
+  --tertiary-background:        rgba(44, 44, 46, 0.88);
+  --grouped-background:         rgba(29, 29, 31, 0.75);
+  --card-background:            rgba(28, 28, 30, 0.78);
 
   /* ── Text ─────────────────────────────────────────────────────────────── */
-  --primary-text:               #000000de;
-  --secondary-text:             #3c3c43cc;
-  --tertiary-text:              #3c3c4399;
-  --quaternary-text:            #3c3c4366;
+  --primary-text:               #ffffffeb;
+  --secondary-text:             #ffffffc7;
+  --tertiary-text:              #ffffff99;
+  --quaternary-text:            #ffffff66;
 
   /* ── Separators & Borders ─────────────────────────────────────────────── */
-  --separator:                  rgba(60, 60, 67, 0.18);
-  --hairline:                   rgba(132, 132, 137, 0.36);
-  --strong-separator:           rgba(60, 60, 67, 0.30);
+  --separator:                  rgba(84, 84, 88, 0.36);
+  --hairline:                   rgba(84, 84, 88, 0.50);
+  --strong-separator:           rgba(84, 84, 88, 0.65);
 
   /* ── Accents & Semantic Colors ────────────────────────────────────────── */
-  --accent:                     #007aff;
-  --accent-pressed:             #0062cc;
-  --success:                    #34c759;
-  --warning:                    #ff9500;
-  --danger:                     #ff3b30;
-  --destructive:                #ff3b30;
+  --accent:                     #0a84ff;      /* iOS vibrant blue */
+  --accent-pressed:             #0066cc;
+  --success:                    #30d158;
+  --warning:                    #ff9f0a;
+  --danger:                     #ff453a;
+  --destructive:                #ff453a;
 
-  /* ── Translucency & Blur ──────────────────────────────────────────────── */
-  --blur-radius:                20px;
-  --navbar-blur:                rgba(242, 242, 247, 0.82);
-  --card-blur:                  rgba(255, 255, 255, 0.72);
-  --popover-blur:               rgba(255, 255, 255, 0.85);
+  /* ── Heavy Translucency & Blur (the core of this variant) ─────────────── */
+  --blur-radius:                32px;         /* strong blur */
+  --blur-radius-strong:         48px;
+  --navbar-blur:                rgba(0, 0, 0, 0.72);
+  --card-blur:                  rgba(28, 28, 30, 0.65);
+  --popover-blur:               rgba(36, 36, 38, 0.82);
 
-  /* ── Shadows ──────────────────────────────────────────────────────────── */
-  --shadow-sm:                  0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md:                  0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg:                  0 8px 24px rgba(0,0,0,0.12);
-  --shadow-hover:               0 12px 32px rgba(0,0,0,0.14);
+  /* ── Shadows (softer but visible in dark mode) ────────────────────────── */
+  --shadow-sm:                  0 2px 8px rgba(0,0,0,0.55);
+  --shadow-md:                  0 8px 24px rgba(0,0,0,0.65);
+  --shadow-lg:                  0 16px 40px rgba(0,0,0,0.75);
+  --shadow-hover:               0 20px 48px rgba(0,0,0,0.85);
 
-  /* ── Corner Radii ─────────────────────────────────────────────────────── */
-  --radius-sm:                  10px;
-  --radius-md:                  14px;
-  --radius-lg:                  18px;
-  --radius-xl:                  22px;
-  --radius-xxl:                 28px;
+  /* ── Corner Radii (modern iOS generous rounding) ──────────────────────── */
+  --radius-sm:                  12px;
+  --radius-md:                  16px;
+  --radius-lg:                  20px;
+  --radius-xl:                  26px;
+  --radius-xxl:                 32px;
 
-  /* ── Typography tweaks ────────────────────────────────────────────────── */
+  /* ── Typography weights ───────────────────────────────────────────────── */
   --font-weight-regular:        400;
   --font-weight-medium:         500;
   --font-weight-semibold:       600;
 
-  /* Re-map some of your original variables for compatibility */
+  /* Compatibility mappings with original variables */
   --color-primary:              var(--accent);
   --color-success:              var(--success);
   --color-info:                 var(--accent);
@@ -79,7 +80,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Main containers */
+/* Main containers – heavy glass effect */
 #main-content,
 .inner-content,
 .container-fluid > .block,
@@ -93,37 +94,37 @@ body {
   border-radius: var(--radius-lg);
   border: 1px solid var(--separator);
   box-shadow: var(--shadow-md);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(var(--blur-radius));
+  -webkit-backdrop-filter: blur(var(--blur-radius));
   overflow: hidden;
 }
 
-/* More card-like spacing */
+/* Very pronounced card feeling */
 .panel, .block, .well, .card, .container.box {
   margin: 16px 0;
   border-radius: var(--radius-xl);
 }
 
 /* ==========================================================================
-   Navigation / Headers / Sidebars
+   Navigation / Headers / Sidebars – strongest blur here
    ========================================================================== */
 
 .hoe-right-header,
 .hoe-left-header,
 #hoeapp-wrapper[hoe-device-type="phone"] .hoe-right-header {
   background: var(--navbar-blur) !important;
-  backdrop-filter: saturate(180%) blur(var(--blur-radius));
-  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-radius));
+  backdrop-filter: saturate(180%) blur(var(--blur-radius-strong));
+  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-radius-strong));
   border-bottom: 1px solid var(--hairline);
 }
 
 #hoeapp-container[hoe-color-type="lpanel-bg5"] #hoe-left-panel {
   background: var(--navbar-blur);
-  backdrop-filter: blur(var(--blur-radius));
+  backdrop-filter: blur(var(--blur-radius-strong));
 }
 
 /* ==========================================================================
-   Buttons
+   Buttons – vibrant + glass effect
    ========================================================================== */
 
 .btn,
@@ -131,18 +132,19 @@ body {
 .bbcode-spoiler-button, .imgbb-button {
   border: none;
   border-radius: var(--radius-md);
-  padding: 10px 18px;
+  padding: 11px 20px;
   font-weight: var(--font-weight-semibold);
   letter-spacing: -0.01em;
-  transition: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-image: none !important;
   box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
 }
 
 .btn-primary,
 .btn-primary:active,
 .btn-primary:hover {
-  background-color: var(--accent) !important;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-pressed)) !important;
   color: white !important;
 }
 
@@ -153,7 +155,7 @@ body {
 .btn:hover,
 .btn:active,
 .btn:focus {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
 
@@ -169,18 +171,18 @@ body {
   background: var(--card-background);
   border: 1px solid var(--separator);
   box-shadow: var(--shadow-md);
-  backdrop-filter: blur(4px);
-  transition: transform 0.25s, box-shadow 0.25s;
+  backdrop-filter: blur(var(--blur-radius));
+  transition: transform 0.28s, box-shadow 0.28s;
 }
 
 .card.is-torrent:hover,
 .torrent-row:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
 
 /* ==========================================================================
-   Tables
+   Tables – subtle dark glass
    ========================================================================== */
 
 .table-responsive .table {
@@ -189,21 +191,22 @@ body {
   border: 1px solid var(--separator);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
 }
 
 .table > thead > tr > th {
-  background: rgba(0,0,0,0.02);
+  background: rgba(255,255,255,0.04);
   color: var(--secondary-text);
   font-weight: var(--font-weight-semibold);
   border-bottom: 1px solid var(--separator);
 }
 
 .table > tbody > tr:nth-child(odd) {
-  background-color: var(--grouped-background);
+  background-color: rgba(255,255,255,0.03);
 }
 
 .table > tbody > tr:hover {
-  background-color: rgba(0, 122, 255, 0.07) !important;
+  background-color: rgba(10, 132, 255, 0.12) !important;
 }
 
 /* ==========================================================================
@@ -213,6 +216,7 @@ body {
 #frame > .content {
   background: var(--card-background);
   border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--blur-radius));
 }
 
 .chatbox-message {
@@ -232,16 +236,16 @@ body {
 .form-control,
 textarea,
 select {
-  background-color: rgba(0,0,0,0.04);
+  background-color: rgba(255,255,255,0.08);
   border: 1px solid var(--separator);
   border-radius: var(--radius-md);
   color: var(--primary-text);
-  padding: 10px 14px;
+  padding: 11px 15px;
 }
 
 .form-control:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(0,122,255,0.18);
+  box-shadow: 0 0 0 4px rgba(10,132,255,0.28);
 }
 
 /* ==========================================================================
@@ -267,30 +271,17 @@ hr {
 
 @media (max-width: 767px) {
   :root {
-    --radius-lg: 16px;
-    --radius-xl: 20px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --blur-radius: 28px;
   }
 
   .panel, .block, .card, .well {
-    margin: 10px 6px;
+    margin: 12px 6px;
     border-radius: var(--radius-lg);
-  }
-
-  .btn {
-    padding: 12px 16px;
   }
 }
 
 /* ==========================================================================
-   Keep some of your original structural fixes / overrides
-   (chat layout, forum grids, etc.) can be merged here if needed
+   End of iOS Dark Heavy-Blur Theme
    ========================================================================== */
-
-/* Example: keep your forum post grid layout if you want */
-.profil {
-  background: var(--card-background);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
-/* End of iOS light theme */
