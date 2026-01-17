@@ -103,3 +103,90 @@ input,select,textarea{
   .main-header{grid-column:1}
   .main-footer{grid-column:1}
 }
+
+/* =====================================================
+   TORRENT LIST – STANDALONE LAYOUT
+   ===================================================== */
+
+/* Search & filter bar */
+.torrent-search,
+.torrent-filters,
+.card-filter{
+  background:#151922;
+  border:1px solid #2a3042;
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:24px;
+}
+
+/* Filters grid */
+.advanced-filters{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+/* Torrent table */
+.table-torrents{
+  width:100%;
+  border-collapse:collapse;
+  background:#151922;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.table-torrents thead th{
+  background:#0f1320;
+  color:#5cc8ff;
+  padding:16px;
+  font-weight:600;
+}
+
+.table-torrents td{
+  padding:16px;
+  border-bottom:1px solid #2a3042;
+}
+
+.table-torrents tbody tr:hover{
+  background:#1b2030;
+}
+
+/* Torrent title */
+.torrent-name{
+  font-weight:600;
+  color:#5cc8ff;
+  text-decoration:none;
+}
+
+/* Category pills */
+.badge-category{
+  background:#1f2933;
+  border:1px solid #2a3042;
+  color:#ffb86c;
+  border-radius:999px;
+  padding:6px 14px;
+  font-size:12px;
+}
+
+/* Stats */
+.seeds{color:#50fa7b;font-weight:700}
+.leeches{color:#ff5555;font-weight:700}
+
+/* Tags */
+.torrent-tags span{
+  background:#1f2933;
+  border:1px solid #2a3042;
+  border-radius:999px;
+  padding:4px 10px;
+  color:#ffb86c;
+  margin-right:6px;
+  font-size:12px;
+}
+
+/* Actions */
+.torrent-actions a{
+  padding:8px 12px;border-radius:10px;
+  border:1px solid #2a3042;
+  color:#eaeaf0;text-decoration:none;
+}
+.torrent-actions a:hover{background:#2563eb;border:none}
