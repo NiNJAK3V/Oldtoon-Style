@@ -1,0 +1,305 @@
+/* =========================================================
+   FUTURISTIC AQUA / GREEN DARK THEME
+   ========================================================= */
+
+:root {
+
+  /* =========================
+     CORE PALETTE
+     ========================= */
+
+  --text-color: #d7fdf6;
+
+  --accent-aqua: #00f5d4;
+  --accent-aqua-soft: #00c2a8;
+  --accent-green: #00ff88;
+  --accent-green-soft: #00cc6a;
+
+  --accent-glow:
+    0 0 6px rgba(0,255,200,0.6),
+    0 0 14px rgba(0,255,200,0.35);
+
+  --color-dark-magenta: #1a101a;
+  --color-dark-green: #0f1c16;
+  --color-dark-blue: #0c141c;
+  --color-dark-red: #1a1012;
+
+  --color-red: #ff4d6d;
+  --color-light-red: #ff758f;
+
+  --color-green: var(--accent-green-soft);
+  --color-light-green: var(--accent-green);
+
+  --color-yellow: #d4ff00;
+  --color-light-yellow: #f0ff66;
+
+  --color-magenta: #c084fc;
+  --color-light-magenta: #e0aaff;
+
+  --color-dark-purple: #12101a;
+  --color-purple: #7c3aed;
+  --color-light-purple: #a78bfa;
+
+  --color-blue: var(--accent-aqua);
+  --color-light-blue: var(--accent-green);
+
+  --color-bright-white: #ffffff;
+  --color-light-orange: #ffb86b;
+
+  /* =========================
+     BACKGROUND SYSTEM
+     ========================= */
+
+  --bg-0: #0f1720;
+  --bg-1: #0b1118;
+  --bg-2: #080d13;
+  --bg-3: #05080c;
+  --bg-4: #030507;
+  --bg-5: #010203;
+
+  --body-bg: #05080c;
+  --body-bg-secondary: #0a1118;
+  --body-fg: var(--text-color);
+
+  /* =========================
+     PANELS / CARDS
+     ========================= */
+
+  --panel-bg: rgba(10,20,25,0.75);
+  --panel-fg: var(--text-color);
+  --panel-border-radius: 12px;
+  --panel-border: 1px solid rgba(0,255,200,0.08);
+  --panel-box-shadow:
+    0 0 0 1px rgba(0,255,200,0.04),
+    0 10px 30px rgba(0,0,0,0.85);
+
+  --dialog-bg: rgba(8,18,22,0.9);
+  --dialog-border: 1px solid rgba(0,255,200,0.1);
+  --dialog-border-radius: 12px;
+  --dialog-box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+  --dialog-fg: var(--text-color);
+  --dialog-head-bg: #061015;
+  --dialog-head-fg: var(--accent-aqua);
+
+  /* =========================
+     MESSAGE BUBBLES
+     ========================= */
+
+  --message-bubble-bg: rgba(0,255,200,0.08);
+  --message-bubble-fg: var(--text-color);
+  --message-bubble-border-radius: 18px;
+  --message-bubble-border: 1px solid rgba(0,255,200,0.15);
+  --message-bubble-box-shadow: var(--accent-glow);
+  --message-bubble-avatar-border-radius: 50%;
+
+  /* =========================
+     BUTTONS
+     ========================= */
+
+  --button-filled-bg:
+    linear-gradient(90deg,var(--accent-aqua),var(--accent-green));
+  --button-filled-fg: #021312;
+  --button-filled-border: none;
+  --button-filled-border-radius: 9999px;
+
+  --button-outlined-bg: transparent;
+  --button-outlined-border: 1px solid var(--accent-aqua-soft);
+  --button-outlined-border-radius: 9999px;
+  --button-outlined-fg: var(--accent-aqua);
+
+  --button-text-bg: transparent;
+  --button-text-border: none;
+  --button-text-border-radius: 6px;
+  --button-text-fg: var(--accent-aqua);
+
+  /* =========================
+     INPUTS
+     ========================= */
+
+  --input-text-border: 1px solid rgba(0,255,200,0.2);
+  --input-text-border-hover: 1px solid var(--accent-aqua);
+  --input-text-border-active: 2px solid var(--accent-green);
+  --input-text-border-error: 1px solid #ff4d6d;
+  --input-text-border-radius: 8px;
+  --input-text-fg: #ccfff5;
+  --input-text-padding: 12px;
+  --input-text-padding-active: 11px;
+  --input-text-padding-hover: 11px;
+
+  --textarea-border: 1px solid rgba(0,255,200,0.15);
+  --textarea-border-active: 2px solid var(--accent-green);
+  --textarea-border-error: 1px solid #ff4d6d;
+  --textarea-border-hover: 1px solid var(--accent-aqua);
+  --textarea-border-radius: 8px;
+  --textarea-fg: #ccfff5;
+  --textarea-padding: 12px;
+  --textarea-padding-active: 11px;
+  --textarea-padding-hover: 11px;
+
+  /* =========================
+     TABLES
+     ========================= */
+
+  --data-table-fg: var(--text-color);
+  --data-table-th-bg: #061015;
+  --data-table-thead-border: none;
+  --data-table-tr-border: 1px solid rgba(0,255,200,0.08);
+  --data-table-tr-even-bg: rgba(0,255,200,0.02);
+  --data-table-tr-hover-bg: rgba(0,255,200,0.06);
+  --data-table-tr-odd-bg: transparent;
+  --data-table-tfoot-border: none;
+
+  /* =========================
+     ALERTS
+     ========================= */
+
+  --alert-bg: rgba(0,255,200,0.08);
+  --alert-fg: var(--accent-aqua);
+  --alert-gap-color: var(--bg-0);
+  --alert-gap-width: 1px;
+
+  /* =========================
+     MISC
+     ========================= */
+
+  --scrollbar-color: rgba(0,255,200,0.3);
+}
+
+/* =========================================================
+   GLOBAL EFFECTS
+   ========================================================= */
+
+body {
+  margin: 0 auto;
+  max-width: 1440px;
+  background:
+    radial-gradient(circle at top,
+      rgba(0,255,200,0.07),
+      transparent 60%),
+    var(--body-bg);
+  color: var(--body-fg);
+}
+
+/* Glass effect */
+.panel,
+.dialog,
+.article-card,
+.playlist-card,
+.torrent-card {
+  backdrop-filter: blur(12px);
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: var(--accent-aqua);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-green);
+  text-shadow: var(--accent-glow);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button,
+.button-filled {
+  transition: all 0.2s ease;
+}
+
+button:hover,
+.button-filled:hover {
+  box-shadow: var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   INPUT FOCUS
+   ========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,255,200,0.25);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-aqua),var(--accent-green));
+  border-radius: 10px;
+}
+
+/* =========================================================
+   CHAT OVERRIDES
+   ========================================================= */
+
+#frame {
+  background: var(--bg-2);
+}
+
+#frame .content .messages ul li {
+  border-bottom: 1px dashed rgba(0,255,200,0.1);
+}
+
+#frame .content .messages ul li.sent>img {
+  border: 3px solid var(--accent-aqua);
+}
+
+/* =========================================================
+   TOP NAV
+   ========================================================= */
+
+.top-nav {
+  background-color: var(--bg-2);
+  box-shadow: 0 0 20px rgba(0,255,200,0.08);
+}
+
+.top-nav__main-menus>li {
+  background: rgba(0,255,200,0.04);
+  border: 1px solid rgba(0,255,200,0.08);
+  border-radius: 8px;
+}
+
+/* =========================================================
+   TEXT HELPERS
+   ========================================================= */
+
+.text-bright { color: #ffffff; }
+.text-green { color: var(--accent-green); }
+.text-red { color: var(--color-light-red); }
+.text-muted { color: #7ddcd0; }
+.text-blue { color: var(--accent-aqua); }
+.text-purple { color: var(--color-light-purple); }
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge-user {
+  border: 1px solid rgba(0,255,200,0.15);
+  background: rgba(0,255,200,0.08);
+  text-shadow: none;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(0,255,200,0.3);
+  color: #001a16;
+}
