@@ -1,20 +1,14 @@
 /* =========================================================
-   FUTURISTIC OTW DARK THEME COLORS + ALERT
+   FUTURISTIC OTW DARK THEME COLORS + ALERT + TRON BACKGROUND
    ========================================================= */
 :root {
-  /* =========================
-     CORE COLORS
-     ========================= */
-  --text-color: #d7f7f1;          /* light teal text */
-  --text-muted: #7bcfc4;          /* muted teal */
-  --bg-0: #000000;                /* main black background */
-  --bg-1: #050505;                /* panel darker shade */
-  --bg-2: #0a0a0a;                /* panel lighter shade */
-  --bg-3: #0f0f0f;                /* alert bg */
-  
-  /* =========================
-     ACCENT COLORS
-     ========================= */
+  --text-color: #d7f7f1;
+  --text-muted: #7bcfc4;
+  --bg-0: #000000;
+  --bg-1: #050505;
+  --bg-2: #0a0a0a;
+  --bg-3: #0f0f0f;
+
   --accent-100: #bff0e8;
   --accent-200: #8de4d7;
   --accent-300: #4fd2c1;
@@ -22,9 +16,6 @@
   --accent-500: #119682;
   --accent-600: #0d7a6a;
 
-  /* =========================
-     ALERT
-     ========================= */
   --alert-bg: var(--bg-3);
   --alert-fg: var(--text-color);
   --alert-accent: var(--accent-400);
@@ -41,13 +32,40 @@ body {
   background-color: var(--bg-0);
   color: var(--text-color);
   font-family: sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* =========================================================
+   TRON-STYLE ANIMATED GRID
+   ========================================================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(21,176,151,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,176,151,0.07) 1px, transparent 1px);
+  background-size: 70px 70px;
+  animation: tronGrid 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes tronGrid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 0 70px, 70px 0; }
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
 main {
   margin: 2rem;
   padding: 2rem;
   background-color: var(--bg-2);
   border-radius: 12px;
+  position: relative;
 }
 
 /* =========================================================
@@ -94,21 +112,6 @@ main {
 }
 
 /* =========================================================
-   TEXT & LINKS
-   ========================================================= */
-.text-bright { color: #ffffff; }
-.text-green { color: var(--accent-400); }
-.text-red { color: #ff5a6b; }
-.text-muted { color: var(--text-muted); }
-a {
-  color: var(--accent-400);
-  text-decoration: none;
-}
-a:hover {
-  color: var(--accent-200);
-}
-
-/* =========================================================
    PANELS
    ========================================================= */
 .panel, .card {
@@ -116,6 +119,7 @@ a:hover {
   color: var(--text-color);
   border-radius: 10px;
   border: 1px solid rgba(21,176,151,0.15);
+  position: relative;
 }
 
 /* =========================================================
@@ -126,6 +130,22 @@ footer {
   color: var(--text-muted);
   padding: 1rem 2rem;
   text-align: center;
+}
+
+/* =========================================================
+   TEXT & LINKS
+   ========================================================= */
+.text-bright { color: #ffffff; }
+.text-green { color: var(--accent-400); }
+.text-red { color: #ff5a6b; }
+.text-muted { color: var(--text-muted); }
+
+a {
+  color: var(--accent-400);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-200);
 }
 
 /* =========================================================
