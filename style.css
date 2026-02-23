@@ -1,161 +1,138 @@
 /* =========================================================
-   FUTURISTIC DARK – CLEAN AQUA / GREEN (NO GLOW)
-   With Animated Cyber Grid Background
+   FUTURISTIC DARK – K3V EDiTiON
    ========================================================= */
 
 :root {
 
-  /* =========================
-     CORE PALETTE
-     ========================= */
+  /* =====================================================
+     CORE PALETTE (BASED ON #15B097)
+     ===================================================== */
+
+  --accent-base: #15B097;
+
+  /* Lighter */
+  --accent-100: #e6f8f5;
+  --accent-200: #bff0e8;
+  --accent-300: #8de4d7;
+  --accent-400: #4fd2c1;
+  --accent-500: #15B097;
+
+  /* Darker */
+  --accent-600: #119682;
+  --accent-700: #0d7a6a;
+  --accent-800: #095f52;
+  --accent-900: #06463d;
+
+  --accent-aqua: var(--accent-500);
+  --accent-green: var(--accent-400);
 
   --text-color: #d8f3ee;
-
-  --accent-aqua: #00d4b0;
-  --accent-green: #00c853;
-
-  --color-blue: var(--accent-aqua);
-  --color-light-blue: var(--accent-green);
-
-  --color-green: var(--accent-green);
-  --color-light-green: #33e07f;
-
   --color-red: #ff5a6b;
-  --color-light-red: #ff7b89;
-
   --color-purple: #8b5cf6;
   --color-light-purple: #a78bfa;
-
   --color-bright-white: #ffffff;
 
-  /* =========================
+  /* =====================================================
      BACKGROUNDS
-     ========================= */
+     ===================================================== */
 
   --bg-0: #0f1418;
   --bg-1: #0c1115;
   --bg-2: #090d11;
   --bg-3: #070a0d;
   --bg-4: #05070a;
-  --bg-5: #030405;
 
   --body-bg: #05070a;
   --body-bg-secondary: #0a0f13;
   --body-fg: var(--text-color);
 
-  /* =========================
-     PANELS / CARDS
-     ========================= */
+  /* =====================================================
+     PANELS
+     ===================================================== */
 
-  --panel-bg: rgba(10, 15, 18, 0.85);
-  --panel-fg: var(--text-color);
-  --panel-border-radius: 10px;
-  --panel-border: 1px solid rgba(0, 212, 176, 0.08);
+  --panel-bg: rgba(10, 15, 18, 0.75);
+  --panel-border: 1px solid rgba(21,176,151,0.12);
+  --panel-border-radius: 12px;
   --panel-box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 
-  --dialog-bg: rgba(10, 15, 18, 0.95);
-  --dialog-border: 1px solid rgba(0,212,176,0.1);
-  --dialog-border-radius: 12px;
-  --dialog-box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-  --dialog-fg: var(--text-color);
-  --dialog-head-bg: #0b1216;
-  --dialog-head-fg: var(--accent-aqua);
-
-  /* =========================
-     MESSAGE BUBBLES
-     ========================= */
-
-  --message-bubble-bg: rgba(0,212,176,0.06);
-  --message-bubble-fg: var(--text-color);
-  --message-bubble-border-radius: 16px;
-  --message-bubble-border: 1px solid rgba(0,212,176,0.1);
-  --message-bubble-box-shadow: none;
-  --message-bubble-avatar-border-radius: 50%;
-
-  /* =========================
+  /* =====================================================
      BUTTONS
-     ========================= */
+     ===================================================== */
 
-  --button-filled-bg: linear-gradient(90deg, var(--accent-aqua), var(--accent-green));
+  --button-filled-bg: linear-gradient(
+    90deg,
+    var(--accent-500),
+    var(--accent-400)
+  );
   --button-filled-fg: #021312;
-  --button-filled-border: none;
-  --button-filled-border-radius: 9999px;
+  --button-filled-radius: 9999px;
 
-  --button-outlined-bg: transparent;
-  --button-outlined-border: 1px solid rgba(0,212,176,0.4);
-  --button-outlined-border-radius: 9999px;
-  --button-outlined-fg: var(--accent-aqua);
+  --button-outline-border: 1px solid rgba(21,176,151,0.4);
+  --button-outline-fg: var(--accent-500);
 
-  /* =========================
+  /* =====================================================
      INPUTS
-     ========================= */
+     ===================================================== */
 
-  --input-text-border: 1px solid rgba(0,212,176,0.15);
-  --input-text-border-hover: 1px solid rgba(0,212,176,0.35);
-  --input-text-border-active: 2px solid var(--accent-aqua);
-  --input-text-border-error: 1px solid var(--color-red);
-  --input-text-border-radius: 8px;
-  --input-text-fg: #ccfff5;
+  --input-border: 1px solid rgba(21,176,151,0.2);
+  --input-border-hover: 1px solid rgba(21,176,151,0.35);
+  --input-border-active: 2px solid var(--accent-500);
+  --input-radius: 8px;
 
-  --textarea-border: 1px solid rgba(0,212,176,0.15);
-  --textarea-border-active: 2px solid var(--accent-aqua);
-  --textarea-border-hover: 1px solid rgba(0,212,176,0.35);
-  --textarea-border-radius: 8px;
-  --textarea-fg: #ccfff5;
-
-  /* =========================
-     TABLES
-     ========================= */
-
-  --data-table-fg: var(--text-color);
-  --data-table-th-bg: #0b1216;
-  --data-table-tr-border: 1px solid rgba(0,212,176,0.08);
-  --data-table-tr-even-bg: rgba(0,212,176,0.02);
-  --data-table-tr-hover-bg: rgba(0,212,176,0.06);
-
-  /* =========================
-     ALERTS
-     ========================= */
-
-  --alert-bg: rgba(0,212,176,0.08);
-  --alert-fg: var(--accent-aqua);
-
-  --scrollbar-color: rgba(0,212,176,0.25);
+  --scrollbar-color: rgba(21,176,151,0.4);
 }
 
 /* =========================================================
-   FULL WIDTH LAYOUT
+   BASE
    ========================================================= */
 
 body {
   margin: 0;
-  max-width: none;
   background: var(--body-bg);
   color: var(--body-fg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
-}
-
-main {
-  margin: 0;
-  padding: 2rem 3rem;
-  background-color: var(--body-bg-secondary);
+  position: relative;
 }
 
 /* =========================================================
-   CYBER GRID BACKGROUND
+   RESPONSIVE CENTERED LAYOUT (1000px MAX)
+   ========================================================= */
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive padding */
+@media (max-width: 1100px) {
+  main { padding: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  main { padding: 1rem; }
+}
+
+/* =========================================================
+   ANIMATED CYBER GRID BACKGROUND
    ========================================================= */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
+
   background-image:
-    linear-gradient(rgba(0,212,176,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,176,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(21,176,151,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,176,151,0.05) 1px, transparent 1px);
+
   background-size: 60px 60px;
   animation: gridMove 40s linear infinite;
-  pointer-events: none;
 }
 
 @keyframes gridMove {
@@ -172,13 +149,13 @@ body::before {
    ========================================================= */
 
 a {
-  color: var(--accent-aqua);
+  color: var(--accent-500);
   text-decoration: none;
   transition: 0.2s ease;
 }
 
 a:hover {
-  color: var(--accent-green);
+  color: var(--accent-300);
 }
 
 /* =========================================================
@@ -187,6 +164,12 @@ a:hover {
 
 button,
 .button-filled {
+  background: var(--button-filled-bg);
+  color: var(--button-filled-fg);
+  border: none;
+  border-radius: var(--button-filled-radius);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
@@ -195,16 +178,95 @@ button:hover,
   transform: translateY(-1px);
 }
 
+.button-outlined {
+  background: transparent;
+  border: var(--button-outline-border);
+  color: var(--button-outline-fg);
+  border-radius: 9999px;
+  padding: 0.6rem 1.2rem;
+}
+
 /* =========================================================
-   INPUT FOCUS
+   INPUTS
    ========================================================= */
+
+input,
+textarea,
+select {
+  background: var(--bg-2);
+  border: var(--input-border);
+  border-radius: var(--input-radius);
+  padding: 0.6rem 0.8rem;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border: var(--input-border-hover);
+}
 
 input:focus,
 textarea:focus,
 select:focus {
+  border: var(--input-border-active);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0,212,176,0.25);
+  box-shadow: 0 0 0 2px rgba(21,176,151,0.2);
 }
+
+/* =========================================================
+   PANELS / CARDS
+   ========================================================= */
+
+.panel,
+.card,
+#frame {
+  background: var(--panel-bg);
+  border: var(--panel-border);
+  border-radius: var(--panel-border-radius);
+  box-shadow: var(--panel-box-shadow);
+  backdrop-filter: blur(6px);
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+.top-nav {
+  background: rgba(9, 13, 17, 0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(21,176,151,0.1);
+}
+
+.top-nav__main-menus > li {
+  background: rgba(21,176,151,0.05);
+  border: 1px solid rgba(21,176,151,0.1);
+  border-radius: 8px;
+}
+
+/* =========================================================
+   CHAT
+   ========================================================= */
+
+#frame .content .messages ul li {
+  border-bottom: 1px dashed rgba(21,176,151,0.1);
+}
+
+#frame .content .messages ul li.sent > img {
+  border: 2px solid var(--accent-500);
+}
+
+/* =========================================================
+   TEXT HELPERS
+   ========================================================= */
+
+.text-bright { color: #ffffff; }
+.text-green { color: var(--accent-400); }
+.text-red { color: var(--color-red); }
+.text-muted { color: #7ddcd0; }
+.text-blue { color: var(--accent-500); }
+.text-purple { color: var(--color-light-purple); }
 
 /* =========================================================
    SCROLLBAR
@@ -215,56 +277,15 @@ select:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,212,176,0.4);
+  background: var(--scrollbar-color);
   border-radius: 10px;
 }
-
-/* =========================================================
-   CHAT
-   ========================================================= */
-
-#frame {
-  background: var(--bg-2);
-}
-
-#frame .content .messages ul li {
-  border-bottom: 1px dashed rgba(0,212,176,0.1);
-}
-
-#frame .content .messages ul li.sent>img {
-  border: 2px solid var(--accent-aqua);
-}
-
-/* =========================================================
-   NAV
-   ========================================================= */
-
-.top-nav {
-  background-color: var(--bg-2);
-}
-
-.top-nav__main-menus>li {
-  background: rgba(0,212,176,0.04);
-  border: 1px solid rgba(0,212,176,0.08);
-  border-radius: 8px;
-}
-
-/* =========================================================
-   TEXT HELPERS
-   ========================================================= */
-
-.text-bright { color: #ffffff; }
-.text-green { color: var(--accent-green); }
-.text-red { color: var(--color-red); }
-.text-muted { color: #7ddcd0; }
-.text-blue { color: var(--accent-aqua); }
-.text-purple { color: var(--color-light-purple); }
 
 /* =========================================================
    SELECTION
    ========================================================= */
 
 ::selection {
-  background: rgba(0,212,176,0.3);
+  background: rgba(21,176,151,0.3);
   color: #001a16;
 }
