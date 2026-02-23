@@ -1,98 +1,50 @@
 /* =========================================================
-   FUTURISTIC OTW DARK THEME - K3V EDiTiON (REFINED)
+   FUTURISTIC OTW DARK THEME - K3V EDiTiON (FINAL OVERRIDE)
    ========================================================= */
+
+/* =========================
+   ROOT VARIABLES
+   ========================= */
 
 :root {
 
-  /* =========================
-     ACCENT SYSTEM
-     ========================= */
-
-  --accent-100: #e6f8f5;
-  --accent-200: #bff0e8;
-  --accent-300: #8de4d7;
-  --accent-400: #4fd2c1;
   --accent-500: #15B097;
-  --accent-600: #119682;
-  --accent-700: #0d7a6a;
-  --accent-800: #095f52;
-  --accent-900: #063d35;
+  --accent-400: #4fd2c1;
 
   --text-color: #d7f7f1;
   --text-muted: #7bcfc4;
 
-  --color-blue: var(--accent-500);
-  --color-light-blue: var(--accent-300);
-  --color-green: var(--accent-400);
-  --color-light-green: var(--accent-300);
+  --bg-main: #020305;
+  --bg-panel: rgba(8, 13, 18, 0.75);
 
-  --color-red: #ff5a6b;
-  --color-light-red: #ff7b89;
-  --color-purple: #9d7cff;
-  --color-light-purple: #b7a3ff;
-
-  /* =========================
-     BACKGROUNDS
-     ========================= */
-
-  --bg-0: #0e1419;
-  --bg-1: #0b1116;
-  --bg-2: #080d12;
-  --bg-3: #060a0e;
-  --bg-4: #04070a;
-  --bg-5: #020305;
-
-  --body-bg: #020305;
-  --body-fg: var(--text-color);
-
-  /* =========================
-     PANELS
-     ========================= */
-
-  --panel-bg: rgba(8, 13, 18, 0.75);
-  --panel-border: 1px solid rgba(21,176,151,0.15);
-  --panel-border-radius: 12px;
-  --panel-box-shadow: 0 0 18px rgba(21,176,151,0.05);
-
-  /* =========================
-     ALERTS
-     ========================= */
-
-  --alert-bg: rgba(8, 20, 25, 0.75);
-  --alert-border: 3px solid var(--accent-500);
-
-  /* =========================
-     INPUTS
-     ========================= */
-
-  --input-border: 1px solid rgba(21,176,151,0.25);
-  --input-border-hover: 1px solid rgba(21,176,151,0.45);
-  --input-border-active: 2px solid var(--accent-500);
-
-  --scrollbar-color: rgba(21,176,151,0.4);
 }
 
 /* =========================================================
-   BODY + TRON BACKGROUND
+   FORCE BACKGROUND (CANNOT BE OVERRIDDEN)
    ========================================================= */
 
-body {
+html, body {
   margin: 0;
-  background: radial-gradient(circle at center, #061016 0%, #020305 80%);
-  color: var(--body-fg);
-  position: relative;
+  padding: 0;
+  background: radial-gradient(circle at center, #061016 0%, #020305 80%) !important;
+  color: var(--text-color);
   overflow-x: hidden;
 }
 
-/* Full-viewport animated grid */
+/* Animated Grid Layer */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
   background-image:
     linear-gradient(rgba(21,176,151,0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21,176,151,0.06) 1px, transparent 1px);
+
   background-size: 70px 70px;
   animation: tronGrid 40s linear infinite;
   pointer-events: none;
@@ -104,18 +56,22 @@ body::before {
 }
 
 /* =========================================================
-   MAIN (WIDTH CONSTRAINED HERE — NOT BODY)
+   MAIN CONTAINER (WIDTH MOVED HERE)
    ========================================================= */
 
 main {
   max-width: 1440px;
   margin: 2rem auto;
   padding: 2rem;
+
   background: rgba(8, 13, 18, 0.65);
   backdrop-filter: blur(6px);
+
   border-radius: 14px;
   border: 1px solid rgba(21,176,151,0.1);
+
   position: relative;
+  z-index: 1;
 }
 
 /* =========================================================
@@ -123,23 +79,10 @@ main {
    ========================================================= */
 
 .top-nav {
-  background: rgba(6, 12, 16, 0.85);
+  background: rgba(6, 12, 16, 0.9) !important;
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(21,176,151,0.15);
-  box-shadow: 0 0 15px rgba(21,176,151,0.04);
-}
-
-.top-nav__main-menus > li {
-  background: transparent;
-  border: 1px solid transparent;
-  padding: 0.5rem 0.9rem;
-  border-radius: 6px;
-  transition: 0.25s ease;
-}
-
-.top-nav__main-menus > li:hover {
-  border: 1px solid rgba(21,176,151,0.35);
-  background: rgba(21,176,151,0.06);
+  box-shadow: 0 0 12px rgba(21,176,151,0.04);
 }
 
 /* =========================================================
@@ -147,22 +90,11 @@ main {
    ========================================================= */
 
 footer {
-  background: rgba(5, 10, 14, 0.9);
+  background: rgba(5, 10, 14, 0.9) !important;
   border-top: 1px solid rgba(21,176,151,0.15);
   padding: 1.5rem 2rem;
   text-align: center;
   color: var(--text-muted);
-}
-
-footer hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(21,176,151,0.35),
-    transparent
-  );
 }
 
 /* =========================================================
@@ -170,71 +102,46 @@ footer hr {
    ========================================================= */
 
 .alert {
-  background: var(--alert-bg);
-  border-left: var(--alert-border);
+  background: rgba(8, 20, 25, 0.75) !important;
+  border-left: 3px solid var(--accent-500) !important;
   padding: 1rem 1.25rem;
-  border-radius: 10px;
+  border-radius: 8px;
   position: relative;
-}
-
-.alert::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--accent-500),
-    transparent
-  );
-  animation: alertPulse 3s infinite;
-}
-
-@keyframes alertPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
 }
 
 /* =========================================================
-   BUTTONS (REFINED + LESS GLOW)
+   FORCE BUTTON OVERRIDES
    ========================================================= */
 
 button,
-.button-filled {
-  background: transparent;
-  color: var(--accent-400);
-  border: 1px solid rgba(21,176,151,0.5);
+.button-filled,
+.btn,
+input[type="submit"],
+input[type="button"] {
+
+  background: transparent !important;
+  color: var(--accent-400) !important;
+
+  border: 1px solid rgba(21,176,151,0.6) !important;
+  border-radius: 4px !important;
+
   padding: 0.55rem 1.2rem;
-  border-radius: 6px;
   letter-spacing: 0.5px;
-  transition: 0.25s ease;
+
+  box-shadow: none !important;
+  transition: all 0.25s ease;
   position: relative;
 }
 
-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(21,176,151,0.15),
-    transparent
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
+/* Button hover */
+button:hover,
+.button-filled:hover,
+.btn:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
 
-button:hover::after {
-  transform: translateX(100%);
-}
-
-button:hover {
-  background: rgba(21,176,151,0.05);
-  box-shadow: 0 0 6px rgba(21,176,151,0.25);
+  background: rgba(21,176,151,0.05) !important;
+  box-shadow: 0 0 6px rgba(21,176,151,0.3) !important;
 }
 
 /* =========================================================
@@ -244,24 +151,19 @@ button:hover {
 input,
 textarea,
 select {
-  background: var(--bg-2);
-  border: var(--input-border);
-  border-radius: 8px;
+
+  background: #080d12 !important;
+  border: 1px solid rgba(21,176,151,0.3) !important;
+  border-radius: 6px;
+
   padding: 0.6rem 0.8rem;
   color: var(--text-color);
-  transition: 0.25s ease;
-}
-
-input:hover,
-textarea:hover,
-select:hover {
-  border: var(--input-border-hover);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border: var(--input-border-active);
+  border: 2px solid var(--accent-500) !important;
   box-shadow: 0 0 6px rgba(21,176,151,0.35);
   outline: none;
 }
@@ -273,28 +175,34 @@ select:focus {
 .panel,
 .card,
 #frame {
-  background: var(--panel-bg);
-  border: var(--panel-border);
-  border-radius: var(--panel-border-radius);
-  box-shadow: var(--panel-box-shadow);
+
+  background: var(--bg-panel) !important;
+  border: 1px solid rgba(21,176,151,0.15) !important;
+  border-radius: 12px;
+
   position: relative;
 }
 
 /* =========================================================
-   REFINED CORNER SCAN BRACKETS
+   SMALLER CORNER BRACKETS
    ========================================================= */
 
 .panel::before,
 .card::before,
 main::before {
+
   content: "";
   position: absolute;
-  width: 18px;
-  height: 18px;
+
+  width: 16px;
+  height: 16px;
+
   top: 8px;
   left: 8px;
+
   border-top: 1.5px solid var(--accent-500);
   border-left: 1.5px solid var(--accent-500);
+
   opacity: 0.7;
   animation: scanCorner 3s ease-in-out infinite;
 }
@@ -302,45 +210,27 @@ main::before {
 .panel::after,
 .card::after,
 main::after {
+
   content: "";
   position: absolute;
-  width: 18px;
-  height: 18px;
+
+  width: 16px;
+  height: 16px;
+
   bottom: 8px;
   right: 8px;
+
   border-bottom: 1.5px solid var(--accent-500);
   border-right: 1.5px solid var(--accent-500);
+
   opacity: 0.7;
   animation: scanCorner 3s ease-in-out infinite reverse;
 }
 
 @keyframes scanCorner {
-  0%, 100% { opacity: 0.4; }
+  0%,100% { opacity: 0.4; }
   50% { opacity: 0.9; }
 }
-
-/* =========================================================
-   CHAT
-   ========================================================= */
-
-#frame .content .messages ul li {
-  border-bottom: 1px dashed rgba(21,176,151,0.2);
-}
-
-#frame .content .messages ul li.sent img.chat-user-image {
-  border: 2px solid var(--accent-500);
-}
-
-/* =========================================================
-   TEXT HELPERS
-   ========================================================= */
-
-.text-bright { color: #ffffff; }
-.text-green  { color: var(--accent-400); }
-.text-blue   { color: var(--accent-500); }
-.text-muted  { color: var(--text-muted); }
-.text-red    { color: var(--color-light-red); }
-.text-purple { color: var(--color-light-purple); }
 
 /* =========================================================
    SCROLLBAR
@@ -351,9 +241,15 @@ main::after {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-color);
+  background: rgba(21,176,151,0.4);
   border-radius: 10px;
 }
+
+/* =========================================================
+   TEXT HELPERS
+   ========================================================= */
+
+.text-muted { color: var(--text-muted); }
 
 /* =========================================================
    SELECTION
