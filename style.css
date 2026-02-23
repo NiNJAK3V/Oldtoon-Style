@@ -1,59 +1,71 @@
 /* =========================================================
-   FUTURISTIC DARK – K3V EDiTiON
+   FUTURISTIC OTW DARK THEME - K3V EDiTiON
    ========================================================= */
 
 :root {
 
   /* =====================================================
-     CORE PALETTE (BASED ON #15B097)
+     CORE COLOR SYSTEM (BASED ON #15B097)
      ===================================================== */
 
-  --accent-base: #15B097;
-
-  /* Lighter */
   --accent-100: #e6f8f5;
   --accent-200: #bff0e8;
   --accent-300: #8de4d7;
   --accent-400: #4fd2c1;
   --accent-500: #15B097;
-
-  /* Darker */
   --accent-600: #119682;
   --accent-700: #0d7a6a;
   --accent-800: #095f52;
-  --accent-900: #06463d;
+  --accent-900: #063d35;
 
-  --accent-aqua: var(--accent-500);
-  --accent-green: var(--accent-400);
+  --text-color: #d7f7f1;
+  --text-muted: #7bcfc4;
 
-  --text-color: #d8f3ee;
+  --color-blue: var(--accent-500);
+  --color-light-blue: var(--accent-300);
+  --color-green: var(--accent-400);
+  --color-light-green: var(--accent-300);
+
   --color-red: #ff5a6b;
-  --color-purple: #8b5cf6;
-  --color-light-purple: #a78bfa;
+  --color-light-red: #ff7b89;
+
+  --color-purple: #9d7cff;
+  --color-light-purple: #b7a3ff;
+
   --color-bright-white: #ffffff;
 
   /* =====================================================
      BACKGROUNDS
      ===================================================== */
 
-  --bg-0: #0f1418;
-  --bg-1: #0c1115;
-  --bg-2: #090d11;
-  --bg-3: #070a0d;
-  --bg-4: #05070a;
+  --bg-0: #0e1419;
+  --bg-1: #0b1116;
+  --bg-2: #080d12;
+  --bg-3: #060a0e;
+  --bg-4: #04070a;
+  --bg-5: #020305;
 
-  --body-bg: #05070a;
-  --body-bg-secondary: #0a0f13;
+  --body-bg: #020305;
+  --body-bg-secondary: #060a0e;
   --body-fg: var(--text-color);
 
   /* =====================================================
      PANELS
      ===================================================== */
 
-  --panel-bg: rgba(10, 15, 18, 0.75);
-  --panel-border: 1px solid rgba(21,176,151,0.12);
+  --panel-bg: rgba(8, 13, 18, 0.85);
+  --panel-border: 1px solid rgba(21,176,151,0.15);
   --panel-border-radius: 12px;
-  --panel-box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  --panel-box-shadow: 0 0 25px rgba(21,176,151,0.05);
+
+  /* =====================================================
+     MESSAGE BUBBLES
+     ===================================================== */
+
+  --message-bubble-bg: rgba(21,176,151,0.08);
+  --message-bubble-border: 1px solid rgba(21,176,151,0.2);
+  --message-bubble-border-radius: 18px;
+  --message-bubble-box-shadow: 0 0 12px rgba(21,176,151,0.08);
 
   /* =====================================================
      BUTTONS
@@ -65,83 +77,71 @@
     var(--accent-400)
   );
   --button-filled-fg: #021312;
-  --button-filled-radius: 9999px;
+  --button-filled-border-radius: 9999px;
 
-  --button-outline-border: 1px solid rgba(21,176,151,0.4);
-  --button-outline-fg: var(--accent-500);
+  --button-outlined-border: 1px solid rgba(21,176,151,0.4);
+  --button-outlined-fg: var(--accent-400);
 
   /* =====================================================
      INPUTS
      ===================================================== */
 
-  --input-border: 1px solid rgba(21,176,151,0.2);
-  --input-border-hover: 1px solid rgba(21,176,151,0.35);
-  --input-border-active: 2px solid var(--accent-500);
-  --input-radius: 8px;
+  --input-text-border: 1px solid rgba(21,176,151,0.2);
+  --input-text-border-hover: 1px solid rgba(21,176,151,0.4);
+  --input-text-border-active: 2px solid var(--accent-500);
+  --input-text-border-radius: 8px;
+  --input-text-fg: var(--text-color);
+
+  --textarea-border: 1px solid rgba(21,176,151,0.2);
+  --textarea-border-active: 2px solid var(--accent-500);
+  --textarea-border-radius: 8px;
 
   --scrollbar-color: rgba(21,176,151,0.4);
 }
 
 /* =========================================================
-   BASE
+   TRON BACKGROUND
    ========================================================= */
 
 body {
-  margin: 0;
-  background: var(--body-bg);
-  color: var(--body-fg);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* =========================================================
-   RESPONSIVE CENTERED LAYOUT (1000px MAX)
-   ========================================================= */
-
-main {
-  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  max-width: 1440px;
+  background: radial-gradient(circle at center, #061016 0%, #020305 80%);
+  color: var(--body-fg);
   position: relative;
-  z-index: 1;
+  overflow-x: hidden;
 }
 
-/* Responsive padding */
-@media (max-width: 1100px) {
-  main { padding: 1.5rem; }
-}
-
-@media (max-width: 768px) {
-  main { padding: 1rem; }
-}
-
-/* =========================================================
-   ANIMATED CYBER GRID BACKGROUND
-   ========================================================= */
-
+/* Animated grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
+  z-index: -1;
   background-image:
-    linear-gradient(rgba(21,176,151,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,176,151,0.05) 1px, transparent 1px);
-
-  background-size: 60px 60px;
-  animation: gridMove 40s linear infinite;
+    linear-gradient(rgba(21,176,151,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,176,151,0.08) 1px, transparent 1px);
+  background-size: 70px 70px;
+  animation: tronGrid 40s linear infinite;
+  pointer-events: none;
 }
 
-@keyframes gridMove {
-  from {
-    background-position: 0 0, 0 0;
-  }
-  to {
-    background-position: 0 60px, 60px 0;
-  }
+@keyframes tronGrid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 0 70px, 70px 0; }
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+main {
+  margin: 0 2rem;
+  padding: 2rem;
+  background: rgba(8, 13, 18, 0.65);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  border: 1px solid rgba(21,176,151,0.1);
 }
 
 /* =========================================================
@@ -149,41 +149,32 @@ body::before {
    ========================================================= */
 
 a {
-  color: var(--accent-500);
+  color: var(--accent-400);
   text-decoration: none;
   transition: 0.2s ease;
 }
 
 a:hover {
   color: var(--accent-300);
+  text-shadow: 0 0 6px rgba(21,176,151,0.5);
 }
 
 /* =========================================================
    BUTTONS
    ========================================================= */
 
-button,
-.button-filled {
+button {
   background: var(--button-filled-bg);
-  color: var(--button-filled-fg);
   border: none;
-  border-radius: var(--button-filled-radius);
+  border-radius: var(--button-filled-border-radius);
+  color: var(--button-filled-fg);
   padding: 0.6rem 1.2rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
 }
 
-button:hover,
-.button-filled:hover {
+button:hover {
   transform: translateY(-1px);
-}
-
-.button-outlined {
-  background: transparent;
-  border: var(--button-outline-border);
-  color: var(--button-outline-fg);
-  border-radius: 9999px;
-  padding: 0.6rem 1.2rem;
+  box-shadow: 0 0 12px rgba(21,176,151,0.4);
 }
 
 /* =========================================================
@@ -194,25 +185,19 @@ input,
 textarea,
 select {
   background: var(--bg-2);
-  border: var(--input-border);
-  border-radius: var(--input-radius);
+  border: var(--input-text-border);
+  border-radius: var(--input-text-border-radius);
   padding: 0.6rem 0.8rem;
   color: var(--text-color);
-  transition: all 0.2s ease;
-}
-
-input:hover,
-textarea:hover,
-select:hover {
-  border: var(--input-border-hover);
+  transition: 0.2s ease;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border: var(--input-border-active);
+  border: var(--input-text-border-active);
+  box-shadow: 0 0 10px rgba(21,176,151,0.4);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(21,176,151,0.2);
 }
 
 /* =========================================================
@@ -226,23 +211,6 @@ select:focus {
   border: var(--panel-border);
   border-radius: var(--panel-border-radius);
   box-shadow: var(--panel-box-shadow);
-  backdrop-filter: blur(6px);
-}
-
-/* =========================================================
-   NAV
-   ========================================================= */
-
-.top-nav {
-  background: rgba(9, 13, 17, 0.8);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(21,176,151,0.1);
-}
-
-.top-nav__main-menus > li {
-  background: rgba(21,176,151,0.05);
-  border: 1px solid rgba(21,176,151,0.1);
-  border-radius: 8px;
 }
 
 /* =========================================================
@@ -250,11 +218,20 @@ select:focus {
    ========================================================= */
 
 #frame .content .messages ul li {
-  border-bottom: 1px dashed rgba(21,176,151,0.1);
+  border-bottom: 1px dashed rgba(21,176,151,0.2);
 }
 
-#frame .content .messages ul li.sent > img {
+#frame .content .messages ul li.sent img.chat-user-image {
   border: 2px solid var(--accent-500);
+}
+
+/* Message bubble */
+.sent > h4,
+.sent > div {
+  background: var(--message-bubble-bg) !important;
+  border: var(--message-bubble-border);
+  border-radius: var(--message-bubble-border-radius);
+  box-shadow: var(--message-bubble-box-shadow);
 }
 
 /* =========================================================
@@ -263,9 +240,9 @@ select:focus {
 
 .text-bright { color: #ffffff; }
 .text-green { color: var(--accent-400); }
-.text-red { color: var(--color-red); }
-.text-muted { color: #7ddcd0; }
 .text-blue { color: var(--accent-500); }
+.text-muted { color: var(--text-muted); }
+.text-red { color: var(--color-light-red); }
 .text-purple { color: var(--color-light-purple); }
 
 /* =========================================================
@@ -286,6 +263,6 @@ select:focus {
    ========================================================= */
 
 ::selection {
-  background: rgba(21,176,151,0.3);
+  background: rgba(21,176,151,0.35);
   color: #001a16;
 }
