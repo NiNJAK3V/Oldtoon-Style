@@ -4,9 +4,9 @@
 
 :root {
 
-  /* =====================================================
-     CORE COLOR SYSTEM (BASED ON #15B097)
-     ===================================================== */
+  /* =========================
+     ACCENT SYSTEM
+     ========================= */
 
   --accent-100: #e6f8f5;
   --accent-200: #bff0e8;
@@ -28,15 +28,12 @@
 
   --color-red: #ff5a6b;
   --color-light-red: #ff7b89;
-
   --color-purple: #9d7cff;
   --color-light-purple: #b7a3ff;
 
-  --color-bright-white: #ffffff;
-
-  /* =====================================================
+  /* =========================
      BACKGROUNDS
-     ===================================================== */
+     ========================= */
 
   --bg-0: #0e1419;
   --bg-1: #0b1116;
@@ -49,52 +46,29 @@
   --body-bg-secondary: #060a0e;
   --body-fg: var(--text-color);
 
-  /* =====================================================
+  /* =========================
      PANELS
-     ===================================================== */
+     ========================= */
 
   --panel-bg: rgba(8, 13, 18, 0.85);
   --panel-border: 1px solid rgba(21,176,151,0.15);
   --panel-border-radius: 12px;
   --panel-box-shadow: 0 0 25px rgba(21,176,151,0.05);
 
-  /* =====================================================
-     MESSAGE BUBBLES
-     ===================================================== */
+  /* =========================
+     ALERTS
+     ========================= */
 
-  --message-bubble-bg: rgba(21,176,151,0.08);
-  --message-bubble-border: 1px solid rgba(21,176,151,0.2);
-  --message-bubble-border-radius: 18px;
-  --message-bubble-box-shadow: 0 0 12px rgba(21,176,151,0.08);
+  --alert-bg: rgba(8, 20, 25, 0.85);
+  --alert-border: 3px solid var(--accent-500);
 
-  /* =====================================================
-     BUTTONS
-     ===================================================== */
-
-  --button-filled-bg: linear-gradient(
-    90deg,
-    var(--accent-500),
-    var(--accent-400)
-  );
-  --button-filled-fg: #021312;
-  --button-filled-border-radius: 9999px;
-
-  --button-outlined-border: 1px solid rgba(21,176,151,0.4);
-  --button-outlined-fg: var(--accent-400);
-
-  /* =====================================================
+  /* =========================
      INPUTS
-     ===================================================== */
+     ========================= */
 
-  --input-text-border: 1px solid rgba(21,176,151,0.2);
-  --input-text-border-hover: 1px solid rgba(21,176,151,0.4);
-  --input-text-border-active: 2px solid var(--accent-500);
-  --input-text-border-radius: 8px;
-  --input-text-fg: var(--text-color);
-
-  --textarea-border: 1px solid rgba(21,176,151,0.2);
-  --textarea-border-active: 2px solid var(--accent-500);
-  --textarea-border-radius: 8px;
+  --input-border: 1px solid rgba(21,176,151,0.25);
+  --input-border-hover: 1px solid rgba(21,176,151,0.45);
+  --input-border-active: 2px solid var(--accent-500);
 
   --scrollbar-color: rgba(21,176,151,0.4);
 }
@@ -112,15 +86,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated grid */
+/* Animated Grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(rgba(21,176,151,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,176,151,0.08) 1px, transparent 1px);
+    linear-gradient(rgba(21,176,151,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,176,151,0.07) 1px, transparent 1px);
   background-size: 70px 70px;
   animation: tronGrid 40s linear infinite;
   pointer-events: none;
@@ -132,49 +106,140 @@ body::before {
 }
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN
    ========================================================= */
 
 main {
-  margin: 0 2rem;
+  margin: 2rem;
   padding: 2rem;
   background: rgba(8, 13, 18, 0.65);
   backdrop-filter: blur(6px);
   border-radius: 14px;
   border: 1px solid rgba(21,176,151,0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 /* =========================================================
-   LINKS
+   HEADER
    ========================================================= */
 
-a {
-  color: var(--accent-400);
-  text-decoration: none;
-  transition: 0.2s ease;
+.top-nav {
+  background: rgba(6, 12, 16, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(21,176,151,0.15);
+  box-shadow: 0 0 20px rgba(21,176,151,0.05);
 }
 
-a:hover {
-  color: var(--accent-300);
-  text-shadow: 0 0 6px rgba(21,176,151,0.5);
+.top-nav__main-menus > li {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  transition: 0.25s ease;
+}
+
+.top-nav__main-menus > li:hover {
+  border: 1px solid rgba(21,176,151,0.4);
+  background: rgba(21,176,151,0.08);
 }
 
 /* =========================================================
-   BUTTONS
+   FOOTER
    ========================================================= */
 
-button {
-  background: var(--button-filled-bg);
+footer {
+  background: rgba(5, 10, 14, 0.9);
+  border-top: 1px solid rgba(21,176,151,0.15);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+footer hr {
   border: none;
-  border-radius: var(--button-filled-border-radius);
-  color: var(--button-filled-fg);
-  padding: 0.6rem 1.2rem;
-  transition: 0.2s ease;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(21,176,151,0.4),
+    transparent
+  );
+}
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.alert {
+  background: var(--alert-bg);
+  border-left: var(--alert-border);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+.alert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-500),
+    transparent
+  );
+  animation: alertPulse 3s infinite;
+}
+
+@keyframes alertPulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* =========================================================
+   BUTTONS (Clean Hi-Tech)
+   ========================================================= */
+
+button,
+.button-filled {
+  background: transparent;
+  color: var(--accent-400);
+  border: 1px solid rgba(21,176,151,0.5);
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(21,176,151,0.25),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+button:hover::after {
+  transform: translateX(100%);
 }
 
 button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 12px rgba(21,176,151,0.4);
+  background: rgba(21,176,151,0.08);
+  box-shadow: 0 0 10px rgba(21,176,151,0.35);
 }
 
 /* =========================================================
@@ -185,23 +250,29 @@ input,
 textarea,
 select {
   background: var(--bg-2);
-  border: var(--input-text-border);
-  border-radius: var(--input-text-border-radius);
+  border: var(--input-border);
+  border-radius: 8px;
   padding: 0.6rem 0.8rem;
   color: var(--text-color);
-  transition: 0.2s ease;
+  transition: 0.25s ease;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border: var(--input-border-hover);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border: var(--input-text-border-active);
+  border: var(--input-border-active);
   box-shadow: 0 0 10px rgba(21,176,151,0.4);
   outline: none;
 }
 
 /* =========================================================
-   PANELS / CARDS
+   PANELS
    ========================================================= */
 
 .panel,
@@ -211,6 +282,48 @@ select:focus {
   border: var(--panel-border);
   border-radius: var(--panel-border-radius);
   box-shadow: var(--panel-box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================================================
+   ANIMATED CORNER SCAN LINES
+   ========================================================= */
+
+.panel::before,
+.card::before,
+main::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--accent-500);
+  border-left: 2px solid var(--accent-500);
+  opacity: 0.6;
+  animation: scanCorner 4s linear infinite;
+}
+
+.panel::after,
+.card::after,
+main::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--accent-500);
+  border-right: 2px solid var(--accent-500);
+  opacity: 0.6;
+  animation: scanCorner 4s linear infinite reverse;
+}
+
+@keyframes scanCorner {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
 }
 
 /* =========================================================
@@ -223,15 +336,6 @@ select:focus {
 
 #frame .content .messages ul li.sent img.chat-user-image {
   border: 2px solid var(--accent-500);
-}
-
-/* Message bubble */
-.sent > h4,
-.sent > div {
-  background: var(--message-bubble-bg) !important;
-  border: var(--message-bubble-border);
-  border-radius: var(--message-bubble-border-radius);
-  box-shadow: var(--message-bubble-box-shadow);
 }
 
 /* =========================================================
