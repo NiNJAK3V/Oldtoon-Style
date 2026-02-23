@@ -1,61 +1,53 @@
 /* =========================================================
-   OTW DARK THEME COLORS + ALERT - K3V EDITION
+   FUTURISTIC OTW DARK THEME COLORS + ALERT
    ========================================================= */
-
-/* =========================
-   COLOR VARIABLES
-   ========================= */
 :root {
-  --text-color: #cccccc;
-  --color-dark-magenta: hsl(300, 10%, 25%);
-  --color-dark-green: hsl(120, 10%, 25%);
-  --color-dark-blue: hsl(240, 10%, 30%);
-  --color-dark-red: hsl(0, 10%, 25%);
-  --color-red: hsl(0, 20%, 40%);
-  --color-light-red: hsl(0, 20%, 50%);
-  --color-green: hsl(120, 20%, 40%);
-  --color-light-green: hsl(120, 20%, 50%);
-  --color-yellow: hsl(30, 20%, 40%);
-  --color-light-yellow: hsl(30, 20%, 50%);
-  --color-magenta: hsl(300, 20%, 40%);
-  --color-light-magenta: hsl(300, 20%, 50%);
-  --color-dark-purple: hsl(240, 20%, 30%);
-  --color-purple: hsl(240, 20%, 40%);
-  --color-light-purple: hsl(240, 20%, 50%);
-  --color-blue: hsl(205, 35%, 50%);
-  --color-light-blue: hsl(205, 35%, 60%);
-  --color-bright-white: hsl(0, 0%, 100%);
-  --color-light-orange: hsl(20, 20%, 50%);
+  /* =========================
+     CORE COLORS
+     ========================= */
+  --text-color: #d7f7f1;          /* light teal text */
+  --text-muted: #7bcfc4;          /* muted teal */
+  --bg-0: #000000;                /* main black background */
+  --bg-1: #050505;                /* panel darker shade */
+  --bg-2: #0a0a0a;                /* panel lighter shade */
+  --bg-3: #0f0f0f;                /* alert bg */
+  
+  /* =========================
+     ACCENT COLORS
+     ========================= */
+  --accent-100: #bff0e8;
+  --accent-200: #8de4d7;
+  --accent-300: #4fd2c1;
+  --accent-400: #15B097;
+  --accent-500: #119682;
+  --accent-600: #0d7a6a;
 
-  --bg-0: #4f5e6d;
-  --bg-1: #171f2c;
-  --bg-2: #101927;
-  --bg-3: #0a111b;
-  --bg-4: #060a10;
-  --bg-5: #020204;
-
+  /* =========================
+     ALERT
+     ========================= */
   --alert-bg: var(--bg-3);
-  --alert-fg: #aaa;
-  --alert-gap-color: var(--bg-0);
-  --alert-gap-width: 1px;
-  --alert-accent: var(--color-green);
+  --alert-fg: var(--text-color);
+  --alert-accent: var(--accent-400);
+  --alert-gap-color: #010101;
+  --alert-gap-width: 2px;
 }
 
 /* =========================================================
-   BODY & MAIN COLORS
+   BODY & MAIN
    ========================================================= */
 body {
-  margin: 0 auto;
-  max-width: 1440px;
-  background-color: var(--bg-1);
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-0);
   color: var(--text-color);
+  font-family: sans-serif;
 }
 
 main {
   margin: 2rem;
   padding: 2rem;
   background-color: var(--bg-2);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 /* =========================================================
@@ -102,64 +94,49 @@ main {
 }
 
 /* =========================================================
-   TEXT CLASSES
+   TEXT & LINKS
    ========================================================= */
-.text-bright { color: var(--color-bright-white); }
-.text-green { color: var(--color-light-green); }
-.text-red { color: var(--color-light-red); }
-.text-orange { color: var(--color-light-orange); }
-.text-blue { color: var(--color-light-blue); }
-.text-purple { color: var(--color-light-purple); }
-.text-pink { color: var(--color-light-magenta); }
-.text-muted { color: #999; }
-
-/* =========================================================
-   LINKS
-   ========================================================= */
+.text-bright { color: #ffffff; }
+.text-green { color: var(--accent-400); }
+.text-red { color: #ff5a6b; }
+.text-muted { color: var(--text-muted); }
 a {
-  color: var(--color-blue);
+  color: var(--accent-400);
   text-decoration: none;
 }
 a:hover {
-  color: var(--color-light-blue);
+  color: var(--accent-200);
 }
 
 /* =========================================================
-   CHAT
+   PANELS
+   ========================================================= */
+.panel, .card {
+  background-color: var(--bg-1);
+  color: var(--text-color);
+  border-radius: 10px;
+  border: 1px solid rgba(21,176,151,0.15);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  background-color: var(--bg-1);
+  color: var(--text-muted);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+/* =========================================================
+   CHAT (simplified)
    ========================================================= */
 #frame {
-  background: #262929;
+  background: var(--bg-1);
 }
-
 #frame .content .messages ul li {
-  border-bottom: 1px dashed #424545;
+  border-bottom: 1px dashed rgba(21,176,151,0.2);
 }
-
 #frame .content .messages ul li.sent img.chat-user-image {
-  border: 3px solid #7289da;
+  border: 2px solid var(--accent-400);
 }
-
-#frame .content .message-input .wrap input {
-  color: #32465a;
-}
-#frame .content .message-input .wrap input:focus {
-  outline: none;
-}
-#frame .content .message-input .wrap .attachment {
-  color: #435f7a;
-}
-#frame .content .message-input .wrap button {
-  background: #32465a;
-  color: #f5f5f5;
-}
-#frame .content .message-input .wrap button:hover {
-  background: #435f7a;
-}
-
-/* =========================================================
-   OTW SPECIFIC STRUCTURE
-   ========================================================= */
-.top-nav { background-color: var(--bg-1); }
-footer { background-color: var(--bg-1); }
-.panel { background-color: var(--bg-2); color: var(--text-color); }
-.card { background-color: var(--bg-2); color: var(--text-color); }
