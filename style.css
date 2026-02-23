@@ -1,5 +1,5 @@
 /* =========================================================
-   FUTURISTIC OTW DARK THEME - K3V EDiTiON (FULL WORKING)
+   FUTURISTIC OTW DARK THEME - K3V EDiTiON (TRON FULL)
    ========================================================= */
 
 /* =========================
@@ -33,7 +33,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background-image:
     linear-gradient(rgba(21,176,151,0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21,176,151,0.08) 1px, transparent 1px);
@@ -42,9 +42,35 @@ body::before {
   pointer-events: none;
 }
 
+/* Full-Screen Moving Scanlines */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(21,176,151,0.04) 0px,
+      rgba(21,176,151,0.04) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  background-size: cover;
+  animation: scanLines 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Tron Grid Animation */
 @keyframes tronGrid {
   from { background-position: 0 0, 0 0; }
   to { background-position: 0 70px, 70px 0; }
+}
+
+/* Scanlines Animation */
+@keyframes scanLines {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
 }
 
 /* =========================================================
