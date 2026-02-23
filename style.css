@@ -1,5 +1,5 @@
 /* =========================================================
-   FUTURISTIC OTW DARK THEME - K3V EDiTiON
+   FUTURISTIC OTW DARK THEME - K3V EDiTiON (REFINED)
    ========================================================= */
 
 :root {
@@ -43,23 +43,22 @@
   --bg-5: #020305;
 
   --body-bg: #020305;
-  --body-bg-secondary: #060a0e;
   --body-fg: var(--text-color);
 
   /* =========================
      PANELS
      ========================= */
 
-  --panel-bg: rgba(8, 13, 18, 0.85);
+  --panel-bg: rgba(8, 13, 18, 0.75);
   --panel-border: 1px solid rgba(21,176,151,0.15);
   --panel-border-radius: 12px;
-  --panel-box-shadow: 0 0 25px rgba(21,176,151,0.05);
+  --panel-box-shadow: 0 0 18px rgba(21,176,151,0.05);
 
   /* =========================
      ALERTS
      ========================= */
 
-  --alert-bg: rgba(8, 20, 25, 0.85);
+  --alert-bg: rgba(8, 20, 25, 0.75);
   --alert-border: 3px solid var(--accent-500);
 
   /* =========================
@@ -74,27 +73,26 @@
 }
 
 /* =========================================================
-   TRON BACKGROUND
+   BODY + TRON BACKGROUND
    ========================================================= */
 
 body {
-  margin: 0 auto;
-  max-width: 1440px;
+  margin: 0;
   background: radial-gradient(circle at center, #061016 0%, #020305 80%);
   color: var(--body-fg);
   position: relative;
   overflow-x: hidden;
 }
 
-/* Animated Grid */
+/* Full-viewport animated grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(rgba(21,176,151,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,176,151,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(21,176,151,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,176,151,0.06) 1px, transparent 1px);
   background-size: 70px 70px;
   animation: tronGrid 40s linear infinite;
   pointer-events: none;
@@ -102,22 +100,22 @@ body::before {
 
 @keyframes tronGrid {
   from { background-position: 0 0, 0 0; }
-  to { background-position: 0 70px, 70px 0; }
+  to   { background-position: 0 70px, 70px 0; }
 }
 
 /* =========================================================
-   MAIN
+   MAIN (WIDTH CONSTRAINED HERE — NOT BODY)
    ========================================================= */
 
 main {
-  margin: 2rem;
+  max-width: 1440px;
+  margin: 2rem auto;
   padding: 2rem;
   background: rgba(8, 13, 18, 0.65);
   backdrop-filter: blur(6px);
   border-radius: 14px;
   border: 1px solid rgba(21,176,151,0.1);
   position: relative;
-  overflow: hidden;
 }
 
 /* =========================================================
@@ -128,7 +126,7 @@ main {
   background: rgba(6, 12, 16, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(21,176,151,0.15);
-  box-shadow: 0 0 20px rgba(21,176,151,0.05);
+  box-shadow: 0 0 15px rgba(21,176,151,0.04);
 }
 
 .top-nav__main-menus > li {
@@ -140,8 +138,8 @@ main {
 }
 
 .top-nav__main-menus > li:hover {
-  border: 1px solid rgba(21,176,151,0.4);
-  background: rgba(21,176,151,0.08);
+  border: 1px solid rgba(21,176,151,0.35);
+  background: rgba(21,176,151,0.06);
 }
 
 /* =========================================================
@@ -162,7 +160,7 @@ footer hr {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(21,176,151,0.4),
+    rgba(21,176,151,0.35),
     transparent
   );
 }
@@ -176,7 +174,6 @@ footer hr {
   border-left: var(--alert-border);
   padding: 1rem 1.25rem;
   border-radius: 10px;
-  backdrop-filter: blur(6px);
   position: relative;
 }
 
@@ -186,7 +183,7 @@ footer hr {
   top: 0;
   left: 0;
   height: 100%;
-  width: 3px;
+  width: 2px;
   background: linear-gradient(
     to bottom,
     transparent,
@@ -197,13 +194,12 @@ footer hr {
 }
 
 @keyframes alertPulse {
-  0% { opacity: 0.3; }
+  0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
-  100% { opacity: 0.3; }
 }
 
 /* =========================================================
-   BUTTONS (Clean Hi-Tech)
+   BUTTONS (REFINED + LESS GLOW)
    ========================================================= */
 
 button,
@@ -216,7 +212,6 @@ button,
   letter-spacing: 0.5px;
   transition: 0.25s ease;
   position: relative;
-  overflow: hidden;
 }
 
 button::after {
@@ -226,7 +221,7 @@ button::after {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(21,176,151,0.25),
+    rgba(21,176,151,0.15),
     transparent
   );
   transform: translateX(-100%);
@@ -238,8 +233,8 @@ button:hover::after {
 }
 
 button:hover {
-  background: rgba(21,176,151,0.08);
-  box-shadow: 0 0 10px rgba(21,176,151,0.35);
+  background: rgba(21,176,151,0.05);
+  box-shadow: 0 0 6px rgba(21,176,151,0.25);
 }
 
 /* =========================================================
@@ -267,7 +262,7 @@ input:focus,
 textarea:focus,
 select:focus {
   border: var(--input-border-active);
-  box-shadow: 0 0 10px rgba(21,176,151,0.4);
+  box-shadow: 0 0 6px rgba(21,176,151,0.35);
   outline: none;
 }
 
@@ -283,11 +278,10 @@ select:focus {
   border-radius: var(--panel-border-radius);
   box-shadow: var(--panel-box-shadow);
   position: relative;
-  overflow: hidden;
 }
 
 /* =========================================================
-   ANIMATED CORNER SCAN LINES
+   REFINED CORNER SCAN BRACKETS
    ========================================================= */
 
 .panel::before,
@@ -295,14 +289,14 @@ select:focus {
 main::before {
   content: "";
   position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  border-top: 2px solid var(--accent-500);
-  border-left: 2px solid var(--accent-500);
-  opacity: 0.6;
-  animation: scanCorner 4s linear infinite;
+  width: 18px;
+  height: 18px;
+  top: 8px;
+  left: 8px;
+  border-top: 1.5px solid var(--accent-500);
+  border-left: 1.5px solid var(--accent-500);
+  opacity: 0.7;
+  animation: scanCorner 3s ease-in-out infinite;
 }
 
 .panel::after,
@@ -310,20 +304,19 @@ main::before {
 main::after {
   content: "";
   position: absolute;
-  width: 40px;
-  height: 40px;
-  bottom: 0;
-  right: 0;
-  border-bottom: 2px solid var(--accent-500);
-  border-right: 2px solid var(--accent-500);
-  opacity: 0.6;
-  animation: scanCorner 4s linear infinite reverse;
+  width: 18px;
+  height: 18px;
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1.5px solid var(--accent-500);
+  border-right: 1.5px solid var(--accent-500);
+  opacity: 0.7;
+  animation: scanCorner 3s ease-in-out infinite reverse;
 }
 
 @keyframes scanCorner {
-  0% { opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { opacity: 0.2; }
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
 }
 
 /* =========================================================
@@ -343,10 +336,10 @@ main::after {
    ========================================================= */
 
 .text-bright { color: #ffffff; }
-.text-green { color: var(--accent-400); }
-.text-blue { color: var(--accent-500); }
-.text-muted { color: var(--text-muted); }
-.text-red { color: var(--color-light-red); }
+.text-green  { color: var(--accent-400); }
+.text-blue   { color: var(--accent-500); }
+.text-muted  { color: var(--text-muted); }
+.text-red    { color: var(--color-light-red); }
 .text-purple { color: var(--color-light-purple); }
 
 /* =========================================================
