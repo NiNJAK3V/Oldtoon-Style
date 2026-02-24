@@ -625,28 +625,21 @@ body::before {
 }
 
 body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
   background: linear-gradient(
-    90deg,
+    0deg, /* change to vertical */
     transparent 0%,
     rgba(21,176,151,0.08) 48%,
     rgba(21,176,151,0.18) 50%,
     rgba(21,176,151,0.08) 52%,
     transparent 100%
   );
-
-  background-size: 200% 100%;
-  animation: scanBeamFixed 12s linear infinite;
+  background-size: 100% 200%; /* width 100%, height doubled for movement */
+  animation: scanBeamVertical 12s linear infinite;
 }
 
-@keyframes scanBeamFixed {
-  from { background-position: -100% 0; }
-  to   { background-position: 100% 0; }
+@keyframes scanBeamVertical {
+  from { background-position: 0 -100%; }
+  to   { background-position: 0 100%; }
 }
 
 @keyframes subtleFlicker {
