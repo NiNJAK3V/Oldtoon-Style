@@ -700,19 +700,15 @@ body {
 
 h1, h2, h3, .top-nav__main-menus li a {
   text-shadow:
-    0 0 2px #15b097,
-    0 0 5px #15b097,
-    0 0 10px #0ff,
-    0 0 20px #0ff;
+    0 0 1px #15b097,
+    0 0 3px #0ff;
   transition: text-shadow 0.3s ease-in-out;
 }
 
 h1:hover, .top-nav__main-menus li a:hover {
   text-shadow:
-    0 0 4px #15b097,
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 40px #0ff;
+    0 0 2px #15b097,
+    0 0 5px #0ff;
 }
 
 .top-nav::after {
@@ -726,17 +722,13 @@ h1:hover, .top-nav__main-menus li a:hover {
 
 main {
   padding: 2rem;
-  background-color: var(--bg-0);
-  border: 1px solid #15B097;
-  background: rgba(0, 12, 10, 0.65); /* dark green-tinted glass */
+  background: rgba(0, 12, 10, 0.35); /* more transparent */
+  border: 1px solid rgba(21,176,151,0.2);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-
-  border: 1px solid rgba(21,176,151,0.2);
   box-shadow:
     0 0 30px rgba(21,176,151,0.08),
     inset 0 0 40px rgba(21,176,151,0.03);
-
   position: relative;
 }
 
