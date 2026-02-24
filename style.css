@@ -880,3 +880,7 @@ body>header {
 .footer {
   border-top: 1px solid #15B097;
 }
+
+.footer button, .footer a {
+  color: #15B097;
+}
