@@ -1,3 +1,7 @@
+/* =========================================================
+   OLDTOONS BLACK + NEON #15B097 THEME
+   ========================================================= */
+
 :root {
   --text-color: #cccccc;
   --color-dark-magenta: hsl(300, 10%, 25%);
@@ -143,7 +147,7 @@
   --fieldset-border-radius: 5px;
   --fieldset-border: 1px solid var(--bg-0);
 
-  --footer-bg: transparent;
+  --footer-bg: #000;
   --footer-hr-fg: #222;
 
   --icon-button-bg: inherit;
@@ -604,20 +608,9 @@ body::before {
     linear-gradient(90deg, rgba(21,176,151,0.12) 1px, transparent 1px);
 
   background-size: 60px 60px;
-  animation: tronGridMove 40s linear infinite;
-}
-
-@keyframes tronGridMove {
-  from {
-    background-position: 0 0, 0 0;
-  }
-  to {
-    background-position: 0 60px, 60px 0;
-  }
 }
 
 main {
-  margin: 0 2rem;
   padding: 2rem;
   background-color: var(--body-bg-secondary);
 }
@@ -831,8 +824,8 @@ body>header {
 }
 
 .top-nav__branding {
-  width: 220px;
-  height: 60px;
+  width: 307px;
+  height: 205px;
   display: block;
 
   background-image: url("https://images2.imgbox.com/4f/19/cJjzGQcg_o.png");
