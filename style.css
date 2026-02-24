@@ -21,15 +21,18 @@
   --alert-fg: #d7f7f1;
   --button-bg: transparent;
   --button-fg: var(--accent-main);
-  --chatbox-message-bg: #011;
+  --chatbox-message-bg: #181818;
   --data-table-th-bg: #101010;
   --data-table-tr-odd-bg: #181818;
-  --data-table-tr-even-bg: #202020;
+  --data-table-tr-even-bg: #1c1c1c;
   --user-stat-card-bg: #011;
+  --post-head-bg: #101010;
   --post-aside-bg: #101010;
+  --post-bg: #101010;
+  --torrent-card-head-bg: 1c1c1c;
 }
 
-.chatbox__chatroom, .featured-carousel, .user-stat-card-container, .comment-list {
+.chatbox__chatroom, .featured-carousel, .torrent-card__body, .user-stat-card-container, .topic-listing, .comment-list {
   background-color: var(--bg-base);
 }
 
@@ -71,7 +74,6 @@ body::before {
 
 main {
   padding: 2rem;
-  background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(21,176,151,0.2);
   position: relative;
