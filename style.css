@@ -13,17 +13,23 @@
   --bg-base: #011;
   --bg-panel: #101010;
   --bg-alert: #101010;
-  --panel-head-bg: #101010;
+  --panel-head-bg: #000000;
+  --panel-bg: #101010;
   --panel-radius: 12px;
   --panel-box-shadow: 0 0 20px rgba(21,176,151,0.2);
   --alert-border-color: var(--accent-main);
   --alert-fg: #d7f7f1;
   --button-bg: transparent;
   --button-fg: var(--accent-main);
-  --chatbox-message-bg: #303030;
+  --chatbox-message-bg: #011;
+  --data-table-th-bg: #101010;
+  --data-table-tr-odd-bg: #181818;
+  --data-table-tr-even-bg: #202020;
+  --user-stat-card-bg: #011;
+  --post-aside-bg: #101010;
 }
 
-.chatbox__chatroom {
+.chatbox__chatroom, .featured-carousel, .user-stat-card-container, .comment-list {
   background-color: var(--bg-base);
 }
 
