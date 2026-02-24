@@ -661,10 +661,6 @@ body {
   animation: subtleFlicker 8s infinite;
 }
 
-/* =========================================
-   FUTURISTIC INPUTS (REFINED)
-   ========================================= */
-
 input,
 textarea,
 select {
@@ -689,10 +685,6 @@ select:hover {
   background: #151515;
 }
 
-/* =========================================
-   GLITCH FOCUS BURST
-   ========================================= */
-
 input:focus,
 textarea:focus,
 select:focus {
@@ -715,6 +707,39 @@ select:focus {
   60%  { transform: translateX(-1px); }
   80%  { transform: translateX(1px); }
   100% { transform: translateX(0); }
+}
+
+.quick-search__input {
+  background: #0f0f0f;
+  color: #cccccc;
+
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+
+  padding: 0.55rem 0.9rem;
+  transition: all 0.25s ease;
+
+  /* subtle depth */
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+}
+
+/* Hover – slight neon hint */
+.quick-search__input:hover {
+  border-color: rgba(21,176,151,0.3);
+  background: #141414;
+}
+
+/* Focus – clean neon edge */
+.quick-search__input:focus {
+  outline: none;
+
+  border-color: #15B097;
+  background: #161616;
+
+  box-shadow:
+    0 0 0 1px rgba(21,176,151,0.4),
+    0 0 8px rgba(21,176,151,0.2),
+    inset 0 0 6px rgba(0,0,0,0.6);
 }
 
 main {
