@@ -1,5 +1,5 @@
 /* =========================================================
-   OLDTOONS BLACK + NEON #15B097 THEME - K3V
+   OLDTOONS BLACK + NEON #15B097 THEME
    ========================================================= */
 
 :root {
@@ -870,6 +870,10 @@ body>header {
 
 .compact-search {
   padding: 0.5rem;
+}
+
+body > header {
+  background-color: var(--bg-1);
 }
 
 .alert {
