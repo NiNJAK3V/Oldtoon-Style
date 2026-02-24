@@ -1,5 +1,5 @@
 /* =========================================================
-   FUTURISTIC TRON DARK THEME - BLACK + NEON GREEN
+   FUTURISTIC TRON DARK THEME - BLACK + NEON GREEN - K3V
    ========================================================= */
 
 :root {
@@ -10,7 +10,7 @@
   --accent-light: #4fd2c1;
   --accent-dark: #0d7a6a;
   --text-color: #cccccc;
-  --bg-base: #011;
+  --bg-base: #000000;
   --bg-panel: #101010;
   --bg-alert: #101010;
   --panel-head-bg: #000000;
@@ -21,15 +21,15 @@
   --alert-fg: #d7f7f1;
   --button-bg: transparent;
   --button-fg: var(--accent-main);
-  --chatbox-message-bg: #181818;
-  --data-table-th-bg: #101010;
+  --chatbox-message-bg: #1c1c1c;
+  --data-table-th-bg: #000000;
   --data-table-tr-odd-bg: #181818;
   --data-table-tr-even-bg: #1c1c1c;
   --user-stat-card-bg: #011;
-  --post-head-bg: #101010;
+  --post-head-bg: #000000;
   --post-aside-bg: #101010;
   --post-bg: #101010;
-  --torrent-card-head-bg: 1c1c1c;
+  --torrent-card-head-bg: 000000;
 }
 
 .chatbox__chatroom, .featured-carousel, .torrent-card__body, .user-stat-card-container, .topic-listing, .comment-list {
