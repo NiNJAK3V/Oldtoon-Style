@@ -1,5 +1,5 @@
 /* =========================================================
-   FUTURISTIC TRON DARK THEME - BLACK + NEON GREEN V1.5
+   FUTURISTIC TRON DARK THEME - BLACK + NEON GREEN
    ========================================================= */
 
 :root {
@@ -9,14 +9,14 @@
   --accent-main: #15B097;
   --accent-light: #4fd2c1;
   --accent-dark: #0d7a6a;
-  --text-color: #111111;          /* dark black shade */
+  --text-color: #cccccc;
   --bg-base: #011;
   --bg-panel: rgba(0,0,0,0.6);
   --bg-alert: rgba(0,0,0,0.7);
   --panel-radius: 12px;
   --panel-box-shadow: 0 0 20px rgba(21,176,151,0.2);
   --alert-border-color: var(--accent-main);
-  --alert-fg: #0f1f1a;            /* darker alert text */
+  --alert-fg: #d7f7f1;
   --button-bg: transparent;
   --button-fg: var(--accent-main);
 }
@@ -196,10 +196,10 @@ main::after {
 
 .text-bright { color: #ffffff; }
 .text-green { color: var(--accent-main); }
-.text-blue { color: var(--accent-main); }
-.text-muted { color: #111111; }   /* replaced grey with black */
-.text-red { color: #0f1f1a; }     /* dark shade instead of red-grey */
-.text-purple { color: #0a0a0a; }  /* dark black-purple shade */
+.text-blue { color: #15b097; }
+.text-muted { color: #888; }
+.text-red { color: #ff5a6b; }
+.text-purple { color: #b7a3ff; }
 
 /* =========================================================
    SCROLLBAR
