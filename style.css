@@ -672,6 +672,62 @@ body {
   animation: subtleFlicker 8s infinite;
 }
 
+/* =========================================
+   FUTURISTIC INPUTS (REFINED)
+   ========================================= */
+
+input,
+textarea,
+select {
+  background: #111;
+  color: #ccc;
+
+  border: 1px solid #1f1f1f;
+  border-radius: 6px;
+
+  padding: 0.6rem 0.8rem;
+  transition: all 0.2s ease;
+
+  /* subtle depth */
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+}
+
+/* Subtle idle pop */
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: rgba(21,176,151,0.25);
+  background: #151515;
+}
+
+/* =========================================
+   GLITCH FOCUS BURST
+   ========================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #15B097;
+  background: #161616;
+
+  box-shadow:
+    0 0 0 1px rgba(21,176,151,0.4),
+    0 0 6px rgba(21,176,151,0.25);
+
+  animation: inputGlitch 0.25s steps(2, end);
+}
+
+/* Short glitch flicker */
+@keyframes inputGlitch {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-1px); }
+  40%  { transform: translateX(1px); }
+  60%  { transform: translateX(-1px); }
+  80%  { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+
 main {
   padding: 2rem;
   background-color: var(--bg-0);
@@ -690,51 +746,6 @@ main {
 
 main:has(> article > section.meta) {
   background: rgba(10, 17, 27, .2);
-}
-
-input,
-textarea,
-select {
-  background: #0d0d0d;
-  border: 1px solid rgba(21,176,151,0.25);
-  color: #cccccc;
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-  outline: none;
-  transition: all 0.25s ease;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
-}
-
-/* Placeholder */
-input::placeholder,
-textarea::placeholder {
-  color: #666;
-}
-
-/* Hover (very subtle) */
-input:hover,
-textarea:hover,
-select:hover {
-  border-color: rgba(21,176,151,0.4);
-}
-
-/* Focus state - clean neon accent */
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #15B097;
-  box-shadow:
-    0 0 0 1px rgba(21,176,151,0.4),
-    0 0 10px rgba(21,176,151,0.25);
-  background: #111;
-}
-
-/* Disabled */
-input:disabled,
-textarea:disabled,
-select:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .page__torrents,
@@ -996,17 +1007,16 @@ body>header {
   height: 205px;
   background: url(https://images2.imgbox.com/4f/19/cJjzGQcg_o.png) center/contain no-repeat;
 
-  /* Soft, subtle glow */
-  filter: drop-shadow(0 0 6px rgba(21,176,151,0.35));
-  
-  transition: filter 0.3s ease;
+  /* Very soft halo */
+  filter: drop-shadow(0 0 4px rgba(21,176,151,0.18));
+
+  transition: filter 0.25s ease;
+  animation: none; /* stop pulsing */
 }
 
-/* Slight hover boost */
+/* Tiny hover lift */
 .top-nav__branding:hover {
-  filter: drop-shadow(0 0 8px rgba(21,176,151,0.9))
-          drop-shadow(0 0 18px rgba(21,176,151,0.6))
-          drop-shadow(0 0 30px rgba(21,176,151,0.35));
+  filter: drop-shadow(0 0 6px rgba(21,176,151,0.28));
 }
 
 @keyframes brandingPulse {
