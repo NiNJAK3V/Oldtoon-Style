@@ -881,7 +881,7 @@ body>header {
   position: relative;
   width: 307px;
   height: 205px;
-  background: ur[](https://images2.imgbox.com/4f/19/cJjzGQcg_o.png) center/contain no-repeat;
+  background: url(https://images2.imgbox.com/4f/19/cJjzGQcg_o.png) center/contain no-repeat;
   filter: drop-shadow(0 0 4px rgba(21,176,151,0.18));
   transition: filter 0.25s ease;
   animation: brandingPulse 4s ease-in-out infinite;
