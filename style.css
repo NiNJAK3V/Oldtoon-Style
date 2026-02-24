@@ -671,7 +671,16 @@ main {
   padding: 2rem;
   background-color: var(--bg-0);
   border: 1px solid #15B097
-  
+  background: rgba(0, 12, 10, 0.65); /* dark green-tinted glass */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(21,176,151,0.2);
+  box-shadow:
+    0 0 30px rgba(21,176,151,0.08),
+    inset 0 0 40px rgba(21,176,151,0.03);
+
+  position: relative;
 }
 
 main:has(> article > section.meta) {
@@ -866,6 +875,15 @@ body>header {
 
 .panel__heading {
   padding: 7px 10px;
+}
+
+.panel,
+.card {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  border: 1px solid rgba(21,176,151,0.15);
 }
 
 .torrent-search__filters {
