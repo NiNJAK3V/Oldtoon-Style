@@ -1,5 +1,5 @@
 /* =========================================================
-   OLDTOONS BLACK + NEON #15B097 THEME
+   OLDTOONS BLACK + NEON #15B097 THEME - K3V
    ========================================================= */
 
 :root {
@@ -148,7 +148,7 @@
   --fieldset-border: 1px solid var(--bg-0);
 
   --footer-bg: #000;
-  --footer-hr-fg: #222;
+  --footer-hr-fg: #15B097;
 
   --icon-button-bg: inherit;
   --icon-button-border: none;
@@ -868,4 +868,8 @@ body>header {
 
 .compact-search {
   padding: 0.5rem;
+}
+
+.footer {
+  border-top: 1px solid #15B097;
 }
