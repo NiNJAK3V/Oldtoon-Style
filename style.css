@@ -10,7 +10,7 @@
   --accent-light: #4fd2c1;
   --accent-dark: #0d7a6a;
   --text-color: #cccccc;
-  --bg-base: #000000;
+  --bg-base: #011;
   --bg-panel: rgba(0,0,0,0.6);
   --bg-alert: rgba(0,0,0,0.7);
   --panel-radius: 12px;
@@ -45,7 +45,6 @@ body::before {
     linear-gradient(rgba(21,176,151,0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21,176,151,0.1) 1px, transparent 1px);
   background-size: 70px 70px;
-  animation: tronGrid 40s linear infinite;
   pointer-events: none;
 }
 
@@ -59,11 +58,9 @@ body::before {
    ========================================================= */
 
 main {
-  margin: 2rem;
   padding: 2rem;
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
-  border-radius: var(--panel-radius);
   border: 1px solid rgba(21,176,151,0.2);
   position: relative;
 }
@@ -88,9 +85,7 @@ main {
 .alert {
   background-color: var(--bg-alert);
   color: var(--alert-fg);
-  border-left: 4px solid var(--alert-border-color);
   padding: 1rem 1.25rem;
-  border-radius: 10px;
   position: relative;
   overflow: hidden;
 }
