@@ -1,5 +1,5 @@
 /* =========================================================
-   OLDTOONS BLACK + NEON #15B097 THEME
+   OLDTOONS BLACK + NEON #15B097 THEME - K3V
    ========================================================= */
 
 :root {
@@ -792,6 +792,8 @@ main:has(> article > section.meta) {
 body>header {
   position: unset;
   background-color: var(--bg-1) !important;
+  border-top: 1px solid #15B097;
+  border-bottom: 1px solid #15B097;
 }
 
 .top-nav--left__container .progress {
