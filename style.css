@@ -161,15 +161,25 @@
   --icon-button-filled-fg: white;
   --icon-button-filled-border: none;
 
-  --input-text-border: 1px solid var(--bg-0);
-  --input-text-border-active: 2px solid #2195f3;
-  --input-text-border-error: 1px solid #ba1b1b;
-  --input-text-border-hover: 2px solid #999;
-  --input-text-border-radius: 5px;
-  --input-text-fg: #bbb;
-  --input-text-padding: 12px;
-  --input-text-padding-active: 11px;
-  --input-text-padding-hover: 11px;
+--input-text-border: 1px solid #1a1a1a;
+--input-text-border-hover: 1px solid rgba(21,176,151,0.35);
+--input-text-border-active: 1px solid #15B097;
+--input-text-border-error: 1px solid #ba1b1b;
+
+--input-text-fg: #cccccc;
+--input-text-border-radius: 6px;
+
+--textarea-border: 1px solid #1a1a1a;
+--textarea-border-hover: 1px solid rgba(21,176,151,0.35);
+--textarea-border-active: 1px solid #15B097;
+--textarea-border-error: 1px solid #ba1b1b;
+--textarea-fg: #cccccc;
+
+--select-border: 1px solid #1a1a1a;
+--select-border-hover: 1px solid rgba(21,176,151,0.35);
+--select-border-active: 1px solid #15B097;
+--select-border-error: 1px solid #ba1b1b;
+--select-fg: #cccccc;
 
   --key-value-even-bg: var(--bg-2);
   --key-value-fg: var(--text-color);
@@ -310,30 +320,9 @@
   --secondary-nav-tab-menu-box-shadow: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
     0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
 
-  --select-border: 1px solid var(--bg-0);
-  --select-border-active: 2px solid #2195f3;
-  --select-border-error: 1px solid #ba1b1b;
-  --select-border-hover: 2px solid #999;
-  --select-border-radius: 5px;
-  --select-fg: #bbb;
-  --select-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23bbb' d='M6 8l-1 1l5 5l5-5l-1-1l-4 4l-4-4z'/></svg>");
-  --select-padding: 11px 23px 11px 11px;
-  --select-padding-active: 10px 22px 10px 10px;
-  --select-padding-hover: 10px 22px 10px 10px;
-
   --subforum-listing-odd-bg: var(--bg-3);
   --subforum-listing-even-bg: transparent;
   --subforum-listing-border: none;
-
-  --textarea-border: 1px solid var(--bg-4);
-  --textarea-border-active: 2px solid #2196f3;
-  --textarea-border-error: 1px solid #ba1b1b;
-  --textarea-border-hover: 2px solid var(--bg-1);
-  --textarea-border-radius: 5px;
-  --textarea-fg: #bbb;
-  --textarea-padding: 12px;
-  --textarea-padding-active: 11px;
-  --textarea-padding-hover: 11px;
 
   --top-nav-bg: var(--body-bg);
   --top-nav-box-shadow: none;
