@@ -11,14 +11,20 @@
   --accent-dark: #0d7a6a;
   --text-color: #cccccc;
   --bg-base: #011;
-  --bg-panel: rgba(0,0,0,0.6);
-  --bg-alert: rgba(0,0,0,0.7);
+  --bg-panel: #101010;
+  --bg-alert: #101010;
+  --panel-head-bg: #101010;
   --panel-radius: 12px;
   --panel-box-shadow: 0 0 20px rgba(21,176,151,0.2);
   --alert-border-color: var(--accent-main);
   --alert-fg: #d7f7f1;
   --button-bg: transparent;
   --button-fg: var(--accent-main);
+  --chatbox-message-bg: #303030;
+}
+
+.chatbox__chatroom {
+  background-color: var(--bg-base);
 }
 
 /* =========================================================
