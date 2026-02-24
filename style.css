@@ -715,28 +715,13 @@ h1:hover, .top-nav__main-menus li a:hover {
     0 0 40px #0ff;
 }
 
-button:hover, .button-filled:hover {
-  box-shadow:
-    0 0 8px #15B097,
-    0 0 16px rgba(21,176,151,0.5),
-    0 0 24px rgba(21,176,151,0.25);
-  transform: scale(1.05);
-  transition: all 0.2s ease-in-out;
+.top-nav::after {
+  animation: navScanFlicker 6s linear infinite;
 }
 
-.panel, main, .card {
-  border: 1px solid rgba(21,176,151,0.3);
-  box-shadow:
-    0 0 4px #15B097,
-    0 0 10px rgba(21,176,151,0.2);
-  transition: box-shadow 0.5s ease-in-out;
-}
-
-.panel:hover, main:hover, .card:hover {
-  box-shadow:
-    0 0 10px #15B097,
-    0 0 20px rgba(21,176,151,0.4),
-    0 0 30px rgba(21,176,151,0.2);
+@keyframes navScanFlicker {
+  0%, 100% { left: -100%; opacity: 0.8; }
+  50% { left: 100%; opacity: 1; }
 }
 
 main {
