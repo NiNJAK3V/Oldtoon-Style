@@ -1,5 +1,5 @@
 /* =========================================================
-   OLDTOONS BLACK + NEON #15B097 THEME
+   OLDTOONS BLACK + NEON #15B097 THEME - K3V
    ========================================================= */
 
 :root {
@@ -24,13 +24,15 @@
   --color-bright-white: hsl(0, 0%, 100%);
   --color-light-orange: hsl(20, 20%, 50%);
 
-  --bg-0: #4f5e6d;
-  --bg-1: #171f2c;
-  --bg-2: #101927;
-  --bg-3: #0a111b;
-  --bg-4: #060a10;
-  --bg-5: #020204;
-  
+  /* Pure black base */
+  --bg-0: #000000;
+
+  /* Very deep black layers (subtle separation) */
+  --bg-1: #050505;
+  --bg-2: #0a0a0a;
+  --bg-3: #0f0f0f;
+  --bg-4: #141414;
+  --bg-5: #1a1a1a;
 
   --message-bubble-bg: #222;
   --message-bubble-fg: currentColor;
@@ -868,6 +870,10 @@ body>header {
 
 .compact-search {
   padding: 0.5rem;
+}
+
+.alert {
+  border-left: 3px solid #15B097;
 }
 
 .footer {
