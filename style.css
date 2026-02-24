@@ -649,6 +649,24 @@ body::after {
   to   { background-position: 0 -100%; }  /* end below viewport */
 }
 
+body::after::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    rgba(255,255,255,0.02) 0 1px,
+    transparent 1px 2px
+  );
+  animation: scanlineFlicker 0.15s infinite;
+}
+
+@keyframes scanlineFlicker {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
 body {
   animation: subtleFlicker 8s infinite;
 }
@@ -678,6 +696,23 @@ body {
   width: 100%;
   background: #15B097;
   box-shadow: 0 0 6px rgba(21,176,151,0.5);
+}
+
+h1, h2, h3, .top-nav__main-menus li a {
+  text-shadow:
+    0 0 2px #15b097,
+    0 0 5px #15b097,
+    0 0 10px #0ff,
+    0 0 20px #0ff;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+h1:hover, .top-nav__main-menus li a:hover {
+  text-shadow:
+    0 0 4px #15b097,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff;
 }
 
 main {
