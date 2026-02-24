@@ -157,6 +157,17 @@ button:hover, .button-filled:hover {
   align-items: center;
 }
 
+.top-nav__branding>img,
+.top-nav__branding>.top-nav__site-logo {
+  display: none;
+}
+
+.top-nav__branding {
+  width: 220px;
+  height: 60px;
+  background: url(https://ninjak3v.github.io/Oldtoon-Style/d8a279d9-286e-4393-b2c3-15516f077296.png);
+}
+
 footer {
   background-color: rgba(0,0,0,0.8);
   color: var(--text-color);
