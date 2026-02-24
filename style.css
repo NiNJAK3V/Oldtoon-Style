@@ -757,34 +757,54 @@ main:has(> article > section.meta) {
   font-size: 10px;
 }
 
-.top-nav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  background: radial-gradient(
-    circle at center top,
-    rgba(21,176,151,0.08),
-    transparent 70%
-  );
-}
-
+/* =======================
+   TOP NAVIGATION - FLEX VERSION
+   ======================= */
 .top-nav {
+  display: flex;                   /* horizontal layout */
+  justify-content: space-between;   /* left menus on left, right content on right */
+  align-items: center;             /* vertically center everything */
+  padding: 1rem 2rem 0.5rem 2rem;
   position: relative;
   background-color: var(--top-nav-bg);
   box-shadow: var(--top-nav-box-shadow);
-  box-shadow: var(--top-nav-box-shadow);
-  display: grid;
-  grid-template-areas:
-    "left"
-    "right";
-  grid-template-rows: auto auto;
-  grid-template-columns: 1fr;
-  align-items: center;
-  padding: 1rem 2rem 0.5rem 2rem;
 }
 
+/* Left section: branding / logo (if any) */
+.top-nav__left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Main menus */
+.top-nav__main-menus {
+  display: flex;
+  align-items: center;
+  gap: 12px;       /* spacing between menu items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual menu items */
+.top-nav__main-menus > li {
+  background: var(--bg-2);
+  border-radius: 6px;
+  position: relative;
+}
+
+/* Right section */
+.top-nav__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;      /* spacing between right section items */
+  margin-left: auto; /* push it to the far right */
+  position: relative;
+  top: 0;         /* remove old negative top hack */
+}
+
+/* Optional: neon scan line effect */
 .top-nav::after {
   content: "";
   position: absolute;
@@ -792,14 +812,7 @@ main:has(> article > section.meta) {
   left: -100%;
   height: 2px;
   width: 100%;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #15B097,
-    transparent
-  );
-
+  background: linear-gradient(90deg, transparent, #15B097, transparent);
   animation: navScan 6s linear infinite;
 }
 
@@ -808,34 +821,29 @@ main:has(> article > section.meta) {
   to   { left: 100%; }
 }
 
-.top-nav__left {
-  grid-area: left;
-  display: flex;
-  column-gap: 32px;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
+/* Responsive adjustments */
+@media screen and (max-width: 767px) {
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 0.5rem;
+  }
 
-.top-nav__main-menus {
-  grid-area: right;
-  display: flex;
-  list-style-type: none;
-  align-items: center;
-  margin: auto 0;
-  padding: 0;
-  justify-self: start;
-}
+  .top-nav__main-menus,
+  .top-nav__right {
+    width: 100%;
+    margin: 0 0 0.5rem 0;
+  }
 
-.top-nav__right {
-  container-type: inline-size;
-  grid-area: right;
-  display: flex;
-  column-gap: 40px;
-  width: 60%;
-  margin-left: auto;
-  position: relative;
-  top: -6rem;
+  .top-nav__main-menus {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .top-nav__right {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .top-nav__ratio-bar.top-nav__ratio-bar {
