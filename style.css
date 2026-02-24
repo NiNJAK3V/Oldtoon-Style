@@ -614,7 +614,9 @@ body::before {
 
 main {
   padding: 2rem;
-  background-color: var(--body-bg-secondary);
+  background-color: var(--bg-0);
+  border: 1px solid #15B097
+  
 }
 
 main:has(> article > section.meta) {
@@ -789,6 +791,7 @@ main:has(> article > section.meta) {
 
 body>header {
   position: unset;
+  background-color: var(--bg-1) !important;
 }
 
 .top-nav--left__container .progress {
@@ -870,10 +873,6 @@ body>header {
 
 .compact-search {
   padding: 0.5rem;
-}
-
-body > header {
-  background-color: var(--bg-1);
 }
 
 .alert {
