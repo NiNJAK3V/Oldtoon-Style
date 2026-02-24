@@ -1,28 +1,46 @@
 /* =========================================================
-   FUTURISTIC TRON DARK THEME - BLACK + NEON GREEN
+   FUTURISTIC DARK THEME BLACK + #15B097 NEON GREEN - K3V
    ========================================================= */
 
 :root {
+
   /* =========================
-     ACCENTS & COLORS
+     ACCENT SYSTEM
      ========================= */
   --accent-main: #15B097;
   --accent-light: #4fd2c1;
   --accent-dark: #0d7a6a;
+
+  /* =========================
+     TEXT
+     ========================= */
   --text-color: #cccccc;
-  --bg-base: #011;
-  --bg-panel: rgba(0,0,0,0.6);
-  --bg-alert: rgba(0,0,0,0.7);
+  --text-muted: #888888;
+
+  /* =========================
+     PURE BLACK LAYERING
+     ========================= */
+  --bg-base: #000000;
+  --bg-panel: #050505;
+  --bg-panel-soft: #070707;
+  --bg-panel-alt: #090909;
+  --bg-alert: #060606;
+
+  /* Specific UI Backgrounds */
+  --panel-head-bg: #050505;
+  --data-table-th-bg: #070707;
+  --data-table-tr-odd-bg: #050505;
+  --data-table-tr-even-bg: #090909;
+  --chatbox-message-bg: #060606;
+  --torrent-card-head-bg: #050505;
+  --post-head-bg: #060606;
+  --post-aside-bg: #040404;
+
   --panel-radius: 12px;
-  --panel-box-shadow: 0 0 20px rgba(21,176,151,0.2);
-  --alert-border-color: var(--accent-main);
-  --alert-fg: #d7f7f1;
-  --button-bg: transparent;
-  --button-fg: var(--accent-main);
 }
 
 /* =========================================================
-   BODY & TRON GRID
+   BODY + TRON GRID
    ========================================================= */
 
 body {
@@ -35,47 +53,88 @@ body {
   position: relative;
 }
 
-/* Tron grid background */
+/* Tron Grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(rgba(21,176,151,0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,176,151,0.1) 1px, transparent 1px);
+    linear-gradient(rgba(21,176,151,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,176,151,0.08) 1px, transparent 1px);
   background-size: 70px 70px;
   pointer-events: none;
 }
 
-@keyframes tronGrid {
-  from { background-position: 0 0, 0 0; }
-  to { background-position: 0 70px, 70px 0; }
-}
-
 /* =========================================================
-   MAIN CONTENT
+   MAIN CONTAINER
    ========================================================= */
 
 main {
   padding: 2rem;
-  background-color: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(21,176,151,0.2);
+  background-color: var(--bg-panel);
+  border: 1px solid rgba(21,176,151,0.15);
   position: relative;
 }
 
 /* =========================================================
-   PANELS & CARDS
+   PANELS / CARDS
    ========================================================= */
 
-.panel, .card {
-  background-color: var(--bg-panel);
+.panel,
+.card {
+  background-color: var(--bg-panel-soft);
   border-radius: var(--panel-radius);
-  box-shadow: var(--panel-box-shadow);
-  border: 1px solid rgba(21,176,151,0.2);
+  border: 1px solid rgba(21,176,151,0.15);
   padding: 1rem;
   position: relative;
+}
+
+/* Panel headers */
+.panel-head,
+.card-head {
+  background-color: var(--panel-head-bg);
+  border-bottom: 1px solid rgba(21,176,151,0.15);
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+table thead th {
+  background-color: var(--data-table-th-bg);
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: var(--data-table-tr-odd-bg);
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--data-table-tr-even-bg);
+}
+
+/* =========================================================
+   CHATBOX
+   ========================================================= */
+
+.chatbox-message {
+  background-color: var(--chatbox-message-bg);
+}
+
+/* =========================================================
+   POSTS / TORRENTS
+   ========================================================= */
+
+.torrent-card-head {
+  background-color: var(--torrent-card-head-bg);
+}
+
+.post-head {
+  background-color: var(--post-head-bg);
+}
+
+.post-aside {
+  background-color: var(--post-aside-bg);
 }
 
 /* =========================================================
@@ -84,59 +143,38 @@ main {
 
 .alert {
   background-color: var(--bg-alert);
-  color: var(--alert-fg);
   padding: 1rem 1.25rem;
   position: relative;
-  overflow: hidden;
-}
-
-.alert::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 4px;
-  background: linear-gradient(to bottom, transparent, var(--accent-main), transparent);
-  animation: alertPulse 2.5s ease-in-out infinite;
-}
-
-@keyframes alertPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+  border-left: 3px solid var(--accent-main);
 }
 
 /* =========================================================
    BUTTONS
    ========================================================= */
 
-button, .button-filled {
-  background-color: var(--button-bg);
-  color: var(--button-fg);
+button,
+.button-filled {
+  background: transparent;
+  color: var(--accent-main);
   border: 1px solid rgba(21,176,151,0.4);
-  border-radius: 6px;
   padding: 0.5rem 1rem;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-button:hover, .button-filled:hover {
-  background-color: rgba(21,176,151,0.1);
-  box-shadow: 0 0 10px rgba(21,176,151,0.6);
+button:hover,
+.button-filled:hover {
+  background-color: rgba(21,176,151,0.08);
+  box-shadow: 0 0 10px rgba(21,176,151,0.5);
 }
 
 /* =========================================================
-   HEADER & FOOTER
+   HEADER / FOOTER
    ========================================================= */
 
 .top-nav {
-  background-color: rgba(0,0,0,0.8);
-  backdrop-filter: blur(4px);
+  background-color: #040404;
   border-bottom: 1px solid rgba(21,176,151,0.2);
-  box-shadow: 0 0 20px rgba(21,176,151,0.1);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -144,7 +182,7 @@ button:hover, .button-filled:hover {
 }
 
 footer {
-  background-color: rgba(0,0,0,0.8);
+  background-color: #040404;
   color: var(--text-color);
   text-align: center;
   padding: 1.5rem 2rem;
@@ -191,13 +229,13 @@ main::after {
 }
 
 /* =========================================================
-   TEXT COLORS
+   TEXT UTILITIES
    ========================================================= */
 
 .text-bright { color: #ffffff; }
 .text-green { color: var(--accent-main); }
-.text-blue { color: #15b097; }
-.text-muted { color: #888; }
+.text-blue { color: var(--accent-main); }
+.text-muted { color: var(--text-muted); }
 .text-red { color: #ff5a6b; }
 .text-purple { color: #b7a3ff; }
 
@@ -208,9 +246,9 @@ main::after {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(21,176,151,0.4);
-  border-radius: 10px;
 }
 
 /* =========================================================
