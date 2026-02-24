@@ -688,6 +688,7 @@ body > header::after {
   width: 40px;
   height: 40px;
   pointer-events: none;
+  z-index: 2; /* above grid reflection */
 }
 
 body > header::before {
