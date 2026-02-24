@@ -679,22 +679,30 @@ body > header {
   overflow: hidden; /* keeps animation inside header */
 }
 
-/* Animated grid reflection inside header */
-body > header::before, /* reuse for corner brackets z-index */
-header .grid-reflection {
+/* Corner brackets */
+body > header::before,
+body > header::after {
+  content: "";
   position: absolute;
-  inset: 0;
+  border: 2px solid #15B097;
+  width: 40px;
+  height: 40px;
   pointer-events: none;
-  z-index: 0; /* below content */
+  z-index: 2; /* above grid reflection */
 }
 
-header .grid-reflection {
-  background-image:
-    linear-gradient(rgba(21,176,151,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,176,151,0.08) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.15;
-  animation: headerGridPulse 6s ease-in-out infinite;
+body > header::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+body > header::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
 }
 
 header::after {
@@ -704,18 +712,6 @@ header::after {
   pointer-events: none;
   background: radial-gradient(circle at center, rgba(21,176,151,0.06), transparent 70%);
   z-index: 0;
-}
-
-/* subtle vertical shimmer for header grid */
-@keyframes headerGridPulse {
-  0%, 100% {
-    background-position: 0 0, 0 0;
-    opacity: 0.12;
-  }
-  50% {
-    background-position: 0 25px, 25px 0;
-    opacity: 0.2;
-  }
 }
 
 main {
