@@ -651,7 +651,7 @@ body::after {
 }
 
 @keyframes scanBeam {
-  from { transform: translateX(-100%); }
+  from { transform: translateX(0%); }
   to   { transform: translateX(100%); }
 }
 
@@ -723,6 +723,7 @@ main:has(> article > section.meta) {
 
 .top-nav {
   background-color: var(--top-nav-bg);
+  box-shadow: var(--top-nav-box-shadow);
   box-shadow: var(--top-nav-box-shadow);
   display: grid;
   grid-template-areas:
