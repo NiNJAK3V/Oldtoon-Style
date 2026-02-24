@@ -692,6 +692,51 @@ main:has(> article > section.meta) {
   background: rgba(10, 17, 27, .2);
 }
 
+input,
+textarea,
+select {
+  background: #0d0d0d;
+  border: 1px solid rgba(21,176,151,0.25);
+  color: #cccccc;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #666;
+}
+
+/* Hover (very subtle) */
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: rgba(21,176,151,0.4);
+}
+
+/* Focus state - clean neon accent */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #15B097;
+  box-shadow:
+    0 0 0 1px rgba(21,176,151,0.4),
+    0 0 10px rgba(21,176,151,0.25);
+  background: #111;
+}
+
+/* Disabled */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .page__torrents,
 .user-torrents,
 .user-peers {
