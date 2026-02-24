@@ -645,8 +645,12 @@ body::after {
 }
 
 @keyframes scanBeamVertical {
-  from { background-position: 0 -100%; } /* start above viewport */
-  to   { background-position: 0 100%; }  /* end below viewport */
+  from { background-position: 0 100%; } /* start above viewport */
+  to   { background-position: 0 -100%; }  /* end below viewport */
+}
+
+body {
+  animation: subtleFlicker 8s infinite;
 }
 
 @keyframes subtleFlicker {
@@ -655,10 +659,6 @@ body::after {
   97% { opacity: 1; }
   98% { opacity: 0.99; }
   99% { opacity: 1; }
-}
-
-body {
-  animation: subtleFlicker 8s infinite;
 }
 
 .quick-search__input {
@@ -909,9 +909,6 @@ body>header {
   background-color: var(--bg-1) !important;
   border-top: 1px solid #15B097;
   border-bottom: 1px solid #15B097;
-  box-shadow:
-    0 0 30px rgba(21,176,151,0.08),
-    inset 0 0 40px rgba(21,176,151,0.03);
 }
 
 .top-nav--left__container .progress {
