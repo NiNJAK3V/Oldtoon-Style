@@ -609,7 +609,62 @@ body::before {
     linear-gradient(rgba(21,176,151,0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21,176,151,0.12) 1px, transparent 1px);
 
-  background-size: 60px 60px;
+  background-size: 70px 70px;
+
+  animation: gridMoveVertical 30s linear infinite,
+             gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridMoveVertical {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 70px, 0 0; }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px rgba(21,176,151,0.3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(21,176,151,0.6));
+  }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(21,176,151,0.05) 45%,
+    rgba(21,176,151,0.15) 50%,
+    rgba(21,176,151,0.05) 55%,
+    transparent 100%
+  );
+
+  animation: scanBeam 12s linear infinite;
+}
+
+@keyframes scanBeam {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+@keyframes subtleFlicker {
+  0%, 100% { opacity: 1; }
+  96% { opacity: 0.98; }
+  97% { opacity: 1; }
+  98% { opacity: 0.99; }
+  99% { opacity: 1; }
+}
+
+body {
+  animation: subtleFlicker 8s infinite;
 }
 
 main {
