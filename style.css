@@ -951,11 +951,9 @@ body>header {
   height: 205px;
   background: url(https://images2.imgbox.com/4f/19/cJjzGQcg_o.png) center/contain no-repeat;
 
-  /* Glow */
-  filter: drop-shadow(0 0 6px rgba(21,176,151,0.6))
-          drop-shadow(0 0 12px rgba(21,176,151,0.4))
-          drop-shadow(0 0 20px rgba(21,176,151,0.25));
-
+  /* Soft, subtle glow */
+  filter: drop-shadow(0 0 6px rgba(21,176,151,0.35));
+  
   transition: filter 0.3s ease;
 }
 
