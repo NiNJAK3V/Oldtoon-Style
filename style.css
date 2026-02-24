@@ -602,7 +602,7 @@ body::before {
     linear-gradient(rgba(21,176,151,0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21,176,151,0.12) 1px, transparent 1px);
 
-  background-size: 70px 70px;
+  background-size: 60px 60px;
 
   animation: gridMoveVertical 30s linear infinite,
              gridPulse 4s ease-in-out infinite;
@@ -610,7 +610,7 @@ body::before {
 
 @keyframes gridMoveVertical {
   from { background-position: 0 0, 0 0; }
-  to   { background-position: 0 70px, 0 0; }
+  to   { background-position: 0 60px, 0 0; }
 }
 
 @keyframes gridPulse {
@@ -620,7 +620,7 @@ body::before {
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 6px rgba(21,176,151,0.6));
+    filter: drop-shadow(0 0 6px rgba(21,176,151,0.8));
   }
 }
 
