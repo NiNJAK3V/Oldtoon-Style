@@ -679,32 +679,6 @@ body > header {
   overflow: hidden; /* keeps animation inside header */
 }
 
-/* Corner brackets */
-body > header::before,
-body > header::after {
-  content: "";
-  position: absolute;
-  border: 2px solid #15B097;
-  width: 40px;
-  height: 40px;
-  pointer-events: none;
-  z-index: 2; /* above grid reflection */
-}
-
-body > header::before {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-}
-
-body > header::after {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-}
-
 /* Animated grid reflection inside header */
 body > header::before, /* reuse for corner brackets z-index */
 header .grid-reflection {
