@@ -758,53 +758,27 @@ main:has(> article > section.meta) {
 }
 
 /* =======================
-   TOP NAVIGATION - FLEX VERSION
+   TOP NAVIGATION - FLEX + NEON
    ======================= */
 .top-nav {
-  display: flex;                   /* horizontal layout */
-  justify-content: space-between;   /* left menus on left, right content on right */
-  align-items: center;             /* vertically center everything */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem 0.5rem 2rem;
   position: relative;
   background-color: var(--top-nav-bg);
   box-shadow: var(--top-nav-box-shadow);
 }
 
-/* Left section: branding / logo (if any) */
-.top-nav__left {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+/* Neon scanline overlay */
+.top-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center top, rgba(21,176,151,0.08), transparent 70%);
 }
 
-/* Main menus */
-.top-nav__main-menus {
-  display: flex;
-  align-items: center;
-  gap: 12px;       /* spacing between menu items */
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Individual menu items */
-.top-nav__main-menus > li {
-  background: var(--bg-2);
-  border-radius: 6px;
-  position: relative;
-}
-
-/* Right section */
-.top-nav__right {
-  display: flex;
-  align-items: center;
-  gap: 20px;      /* spacing between right section items */
-  margin-left: auto; /* push it to the far right */
-  position: relative;
-  top: 0;         /* remove old negative top hack */
-}
-
-/* Optional: neon scan line effect */
 .top-nav::after {
   content: "";
   position: absolute;
@@ -819,6 +793,68 @@ main:has(> article > section.meta) {
 @keyframes navScan {
   from { left: -100%; }
   to   { left: 100%; }
+}
+
+/* Left section (branding/logo) */
+.top-nav__left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Main menus */
+.top-nav__main-menus {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Neon glow hover */
+.top-nav__main-menus li a {
+  color: #ccc;
+  text-decoration: none;
+  text-shadow:
+    0 0 1px #15b097,
+    0 0 3px #0ff;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.top-nav__main-menus li a:hover {
+  text-shadow:
+    0 0 2px #15b097,
+    0 0 5px #0ff;
+}
+
+/* Individual menu items background */
+.top-nav__main-menus > li {
+  background: var(--bg-2);
+  border-radius: 6px;
+  position: relative;
+}
+
+/* Right section */
+.top-nav__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto; /* push to right */
+  position: relative;
+  top: 0;
+}
+
+/* Neon-glow icon/text in right section */
+.top-nav__right > * {
+  color: #ccc;
+  text-shadow: 0 0 1px #15b097, 0 0 3px #0ff;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.top-nav__right > *:hover {
+  text-shadow: 0 0 2px #15b097, 0 0 5px #0ff;
 }
 
 /* Responsive adjustments */
@@ -845,6 +881,9 @@ main:has(> article > section.meta) {
     justify-content: space-between;
   }
 }
+
+
+
 
 .top-nav__ratio-bar.top-nav__ratio-bar {
   display: grid;
