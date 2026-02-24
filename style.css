@@ -955,62 +955,13 @@ body>header {
   position: unset;
   background-color: var(--bg-1) !important;
   border-top: 1px solid #15B097;
-  border-bottom: 1px solid #15B097;
+  border-bottom: 1px rgba(21,176,151,0.2);
+
+  box-shadow:
+    0 0 30px rgba(21,176,151,0.08),
+    inset 0 0 40px rgba(21,176,151,0.03);  
+  
 }
-
-body > header,
-.top-nav {
-  position: relative;
-  background: #000;
-  overflow: hidden;
-}
-
-/* Soft inner glow */
-body > header::before,
-.top-nav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(21,176,151,0.08) 0%,
-      rgba(21,176,151,0.04) 40%,
-      transparent 75%
-    );
-
-  opacity: 0.6;
-}
-
-
-
-body > header::after,
-.top-nav::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image:
-    linear-gradient(rgba(21,176,151,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,176,151,0.05) 1px, transparent 1px);
-
-  background-size: 80px 80px;
-
-  animation: headerGridMove 60s linear infinite;
-
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-@keyframes headerGridMove {
-  from { background-position: 0 0, 0 0; }
-  to   { background-position: 0 80px, 0 80px; }
-}
-
-
 
 .top-nav--left__container .progress {
   height: 2px;
