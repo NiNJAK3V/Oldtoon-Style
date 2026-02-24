@@ -82,7 +82,7 @@
   --bbcode-rendered-quote-bg: #6662;
   --bbcode-rendered-quote-border: var(--color-green);
 
-  --body-bg: #171f2c;
+  --body-bg: var(--bg-0);
   --body-fg: var(--text-color);
   --body-bg-secondary: #0a111b;
 
@@ -875,10 +875,6 @@ body>header {
 
 .compact-search {
   padding: 0.5rem;
-}
-
-.alert {
-  border-left: 3px solid #15B097;
 }
 
 .footer {
