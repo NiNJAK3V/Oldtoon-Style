@@ -590,7 +590,7 @@ body {
 .quick-search__input { position: relative; }
 .quick-search__input:focus { border-color: transparent; }
 .quick-search__input:focus::after {
- width: 400px;
+ width: 400px !important;
  content: "";
  position: absolute;
  left: 0;
