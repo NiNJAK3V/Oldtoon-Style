@@ -587,7 +587,7 @@ body {
  99% { opacity: 1; }
 }
 
-.quick-search__input { width: 400px; position: relative; }
+.quick-search__input { position: relative; width: 400px; margin-left: 15px; }
 .quick-search__input:focus { border-color: transparent; }
 .quick-search__input:focus::after {
  content: "";
