@@ -595,7 +595,6 @@ body {
  left: 0;
  bottom: 0;
  height: 2px;
- width: 100%;
  background: #15B097;
  box-shadow: 0 0 6px rgba(21,176,151,0.5);
 }
@@ -719,8 +718,6 @@ main:has(> article > section.meta) {
 
 .top-nav__right > * {
  color: #ccc;
- text-shadow: 0 0 1px #15b097, 0 0 3px #0ff;
- transition: text-shadow 0.3s ease-in-out;
 }
 
 .top-nav__right > *:hover {
