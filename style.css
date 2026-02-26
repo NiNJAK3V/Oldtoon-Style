@@ -599,9 +599,6 @@ body {
  box-shadow: 0 0 6px rgba(21,176,151,0.5);
 }
 
-
-
-
 .top-nav::after {
  animation: navScanFlicker 6s linear infinite;
 }
@@ -814,8 +811,6 @@ main:has(> article > section.meta) {
  height: 32px;
  max-width: 280px;
 }
-
-.quick-search__inputs { width: 100%; }
 
 body>header {
  position: unset;
