@@ -414,8 +414,8 @@
   padding: 10px 24px;
   margin: 0;
   background: none;
-  border-top: 3px solid #15b097;
-  border-bottom: 3px solid #15b097;
+  border-top: 1px solid #15b097;
+  border-bottom: 1px solid #15b097;
   color: #15b097;
   font-family: "Courier New",Courier,monospace;
   font-size: 15px;
